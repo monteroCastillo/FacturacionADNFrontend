@@ -1,0 +1,138 @@
+
+
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Edición de la Planta</h3>
+    <form (ngSubmit)= "onSubmit()" #plantaForm = "ngForm">
+      <div class="form-group">
+        <label>Nombre : </label>
+        <input type = "text"
+        class="form-control"
+        id = "nombre"
+        [(ngModel)] = "planta.nombre"
+        name = "nombre"
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Digite el nombre de la planta "
+        #nombre = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+          <div *ngIf = "nombre.errors.required">
+            Digite el nombre de  planta por favor
+          </div>
+          <div *ngIf = "nombre.errors.minlength">
+            El nombre tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf = "nombre.errors.maxlength">
+            El nombre tiene que tener como maximo 10 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Descripcion : </label>
+        <input type = "text"
+        class="form-control"
+        id = "descripcion"
+        [(ngModel)] = "planta.descripcion"
+        name = "descripcion"
+        required
+        minlength="4"
+        maxlength="200"
+        placeholder="Digite su descripcion "
+        #descripcion = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+          <div *ngIf = "descripcion.errors.required">
+            Digite su descripcion por favor
+          </div>
+          <div *ngIf = "descripcion.errors.minlength">
+            El descripcion tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf = "descripcion.errors.maxlength">
+            El descripcion tiene que tener como maximo 200 caracteres
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Fecha de ingreso : </label>
+        <input type = "date"
+        class="form-control"
+        id = "fechaIngreso"
+        [(ngModel)] = "planta.fechaIngreso"
+        name = "fechaIngreso"
+        required
+        placeholder="Digite su fechaIngreso "
+        #fechaIngreso = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "fechaIngreso.invalid && (fechaIngreso.dirty || descripcion.touched)">
+          <div *ngIf = "fechaIngreso.errors.required">
+            Digite su fechaIngreso por favor
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cantidad : </label>
+        <input type = "number"
+        class="form-control"
+        id = "cantidad"
+        [(ngModel)] = "planta.cantidad"
+        name = "cantidad"
+
+        required
+        placeholder="Digite la cantidad de plantas "
+        #cantidad = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "cantidad.invalid && (cantidad.dirty || descripcion.touched)">
+          <div *ngIf = "fechaIngreso.errors.required">
+            Digite la cantidad por favor
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Valor : </label>
+        <input type = "number"
+        class="form-control"
+        id = "valor"
+        [(ngModel)] = "planta.valor"
+        name = "valor"
+
+        required
+        placeholder="Digite el valor de la planta "
+        #valor = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "valor.invalid && (cantidad.dirty || descripcion.touched)">
+          <div *ngIf = "valor.errors.required">
+            Digite el valor por favor
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Categoria : </label>
+        <input type = "text"
+        class="form-control"
+        id = "categoria"
+        [(ngModel)] = "planta.categoria"
+        name = "categoria"
+
+        required
+        placeholder="Digite la categoria de la planta "
+        #categoria = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "categoria.invalid && (cantidad.dirty || descripcion.touched)">
+          <div *ngIf = "valor.errors.required">
+            Seleccione la categoria por favor
+          </div>
+
+        </div>
+      </div>
+
+      <button [disabled]="plantaForm.invalid" type="submit" class="btn btn-success">Guardar</button>
+    </form>
+  </div>
