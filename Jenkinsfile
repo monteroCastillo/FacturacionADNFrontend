@@ -13,7 +13,7 @@ pipeline {
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
   tools {
-    nodejs 'NodeJS16'	
+    nodejs 'NodeJS16'
   }
 
   //Aquí comienzan los “items” del Pipeline
@@ -23,7 +23,7 @@ pipeline {
         echo "------------>Checkout<------------"
         checkout([
 			$class: 'GitSCM',
-			branches: [[name: '*/master']],
+			branches: [[name: '*/main']],
 			doGenerateSubmoduleConfigurations: false,
 			extensions: [],
 			gitTool: 'Default',
@@ -50,7 +50,7 @@ pipeline {
         sh 'npm run test'
       }
     }
-	
+
     /*stage('Test end-to-end') {
       steps{
         echo "------------>Testing Protractor<------------"
@@ -61,11 +61,11 @@ pipeline {
 
     stage('Static Code Analysis') {
 		steps{
-		   sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:ceiba-vivero-front-rodrigo.montero', 
+		   sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:ceiba-vivero-front-rodrigo.montero',
        sonarName:'Ceiba-Vivero-Front[rodrigo.montero]',
 			 sonarPathProperties:'./sonar-project.properties')
 		}
-	} 
+	}
 
 	stage('Build') {
 		steps {
