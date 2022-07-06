@@ -9,6 +9,7 @@ import { ListaPlantasComponent } from './feature/planta/components/lista-plantas
 import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
 import { CrearProveedorComponent } from './feature/proveedor/components/crear-proveedor/crear-proveedor.component';
 import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
+import { VentaComponent } from './feature/venta/components/venta/venta.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'crear-proveedor',component : CrearProveedorComponent},
   {path: 'actualizar-proveedor/:id',component : ActualizarProveedorComponent},
   {path: 'detalles-proveedor/:id',component :DetallesProveedorComponent },
+  {path: 'venta/:fecha',component :VentaComponent}
 ];
 
 @NgModule({

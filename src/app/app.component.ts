@@ -13,7 +13,8 @@ export class AppComponent {
     { url: '/home', nombre: 'Home' },
     { url: '/producto', nombre: 'Producto' },
     { url: '/planta', nombre: 'Planta' },
-    { url: '/proveedor', nombre: 'Proveedor' }
+    { url: '/proveedor', nombre: 'Proveedor' },
+    { url: '/venta', nombre: 'Venta' }
   ];
 
 

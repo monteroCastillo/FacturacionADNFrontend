@@ -1,0 +1,24 @@
+
+<!-- <div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Consulta de la venta diaria</h3>
+  <form (ngSubmit)="onSubmit()" #ventaForm="ngForm">
+    <div class="form-group">
+      <label>Fecha : </label>
+      <input type="date" class="form-control" id="ventaDia" [(ngModel)]="venta.ventaDia" name="ventaDia" required
+        placeholder="Seleccione la fecha " #ventaDia="ngModel">
+        <div class="alert alert-danger" *ngIf="ventaDia.invalid && (ventaDia.dirty || ventaDia.touched)">
+          <div *ngIf="ventaDia.errors.required">
+            Seleccione la fecha para buscar la venta
+          </div>
+        </div>
+    </div>
+    <button (click)="calcularSuma(ventaDia.value)" class="Mb-1" style="margin:10px">Consultar</button>
+  </form>
+</div> -->
+
+
+<label>Fecha : </label>
+<input type="date"   #fechaInput="ngModel" required [(ngModel)]="venta.ventaDia" >
+<button [disabled]="fechaInput.invalid" (click)="calcularSuma(fechaInput.value)" class="Mb-1" style="margin:10px">Consultar</button>
+
+<label><b>El valor vendido fue: </b> {{ venta.ventaDia }}</label>

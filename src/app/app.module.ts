@@ -19,6 +19,7 @@ import { CrearProveedorComponent } from './feature/proveedor/components/crear-pr
 import { ListaProveedoresComponent } from './feature/proveedor/components/lista-proveedores/lista-proveedores.component';
 import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
 import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
+import { VentaComponent } from './feature/venta/components/venta/venta.component';
 
 
 
@@ -36,7 +37,8 @@ import { ActualizarProveedorComponent } from './feature/proveedor/components/act
     ListaProveedoresComponent,
     CrearProveedorComponent,
     DetallesProveedorComponent,
-    ActualizarProveedorComponent
+    ActualizarProveedorComponent,
+    VentaComponent
   ],
   imports: [
     BrowserModule,

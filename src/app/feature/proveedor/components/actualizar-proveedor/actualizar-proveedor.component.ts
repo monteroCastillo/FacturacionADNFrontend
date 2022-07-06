@@ -10,7 +10,7 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
 })
 export class ActualizarProveedorComponent implements OnInit {
 
-  id:number
+  id:number;
   proveedor:Proveedor = new Proveedor();
   constructor(private proveedorService:ProveedorService, private router:Router, private route:ActivatedRoute) { }
 
