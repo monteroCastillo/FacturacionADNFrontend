@@ -6,6 +6,9 @@ import { ActualizarPlantaComponent } from './feature/planta/components/actualiza
 import { CrearPlantaComponent } from './feature/planta/components/crear-planta/crear-planta.component';
 import { DetallesPlantaComponent } from './feature/planta/components/detalles-planta/detalles-planta.component';
 import { ListaPlantasComponent } from './feature/planta/components/lista-plantas/lista-plantas.component';
+import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
+import { CrearProveedorComponent } from './feature/proveedor/components/crear-proveedor/crear-proveedor.component';
+import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
 
 
 const routes: Routes = [
@@ -15,7 +18,11 @@ const routes: Routes = [
   {path: 'planta',component:ListaPlantasComponent},
   {path: 'crear-planta',component : CrearPlantaComponent},
   {path: 'actualizar-planta/:id',component : ActualizarPlantaComponent},
-  {path: 'detalles-planta/:id',component : DetallesPlantaComponent}
+  {path: 'detalles-planta/:id',component : DetallesPlantaComponent},
+  {path: 'proveedor',component : ListaPlantasComponent},
+  {path: 'crear-proveedor',component : CrearProveedorComponent},
+  {path: 'actualizar-proveedor/:id',component : ActualizarProveedorComponent},
+  {path: 'detalles-proveedor/:id',component :DetallesProveedorComponent },
 ];
 
 @NgModule({

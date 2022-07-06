@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
@@ -10,9 +11,9 @@ import { PlantaService } from '../../shared/services/planta.service';
 })
 export class DetallesPlantaComponent implements OnInit {
 
-  id:number
+  id:number;
   planta:Planta;
-  constructor(private route:ActivatedRoute, private plantaServicio:PlantaService) { }
+  constructor(private route:ActivatedRoute, private plantaServicio:PlantaService,private location:Location) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -20,6 +21,10 @@ export class DetallesPlantaComponent implements OnInit {
     this.plantaServicio.obtenerPlantaPorId(this.id).subscribe(dato => {
       this.planta =dato;
     });
+  }
+
+  irAtras(){
+    this.location.back;
   }
 
 }

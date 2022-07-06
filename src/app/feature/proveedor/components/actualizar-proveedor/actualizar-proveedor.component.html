@@ -1,0 +1,98 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición del Proveedor</h3>
+  <form (ngSubmit)= "onSubmit()" #proveedorForm = "ngForm">
+    <div class="form-group">
+      <label>Nombre : </label>
+      <input type = "text"
+      class="form-control"
+      id = "nombre"
+      [(ngModel)] = "proveedor.nombre"
+      name = "nombre"
+      required
+      minlength="4"
+      maxlength="30"
+      placeholder="Digite el nombre del proveedor "
+      #nombre = "ngModel"
+      >
+      <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf = "nombre.errors.required">
+          Digite el nombre de  planta por favor
+        </div>
+        <div *ngIf = "nombre.errors.minlength">
+          El nombre tiene que contener como minimo 4 caracteres
+        </div>
+        <div *ngIf = "nombre.errors.maxlength">
+          El nombre tiene que tener como maximo 30 caracteres
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Direccion : </label>
+      <input type = "text"
+      class="form-control"
+      id = "direccion"
+      [(ngModel)] = "proveedor.direccion"
+      name = "direccion"
+      required
+      minlength="4"
+      maxlength="200"
+      placeholder="Digite su direccion "
+      #direccion = "ngModel"
+      >
+      <div class="alert alert-danger" *ngIf= "direccion.invalid && (direccion.dirty || direccion.touched)">
+        <div *ngIf = "direccion.errors.required">
+          Digite su direccion por favor
+        </div>
+        <div *ngIf = "direccion.errors.minlength">
+          El direccion tiene que contener como minimo 4 caracteres
+        </div>
+        <div *ngIf = "direccion.errors.maxlength">
+          El direccion tiene que tener como maximo 200 caracteres
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Telefono : </label>
+      <input type = "text"
+      class="form-control"
+      id = "telefono"
+      [(ngModel)] = "proveedor.telefono"
+      name = "telefono"
+      required
+      placeholder="Digite su telefono "
+      #telefono = "ngModel"
+      >
+      <div class="alert alert-danger" *ngIf= "telefono.invalid && (telefono.dirty || direccion.touched)">
+        <div *ngIf = "telefono.errors.required">
+          Digite su telefono por favor
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Pagina Web : </label>
+      <input type = "text"
+      class="form-control"
+      id = "paginaWeb"
+      [(ngModel)] = "proveedor.paginaWeb"
+      name = "paginaWeb"
+
+      required
+      placeholder="Digite la paginaWeb del Proveedor "
+      #paginaWeb = "ngModel"
+      >
+      <div class="alert alert-danger" *ngIf= "paginaWeb.invalid && (paginaWeb.dirty || paginaWeb.touched)">
+        <div *ngIf = "telefono.errors.required">
+          Digite la pagina Web por favor
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <button [disabled]="proveedorForm.invalid" type="submit" class="btn btn-success">Guardar</button>
+  </form>
+</div>

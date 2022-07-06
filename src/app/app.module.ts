@@ -13,8 +13,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { CrearPlantaComponent } from './feature/planta/components/crear-planta/crear-planta.component';
 import { FormsModule } from '@angular/forms';
 import { ActualizarPlantaComponent } from './feature/planta/components/actualizar-planta/actualizar-planta.component';
-
 import { DetallesPlantaComponent } from './feature/planta/components/detalles-planta/detalles-planta.component';
+import { ProveedorComponent } from './feature/proveedor/components/proveedor/proveedor.component';
+import { CrearProveedorComponent } from './feature/proveedor/components/crear-proveedor/crear-proveedor.component';
+import { ListaProveedoresComponent } from './feature/proveedor/components/lista-proveedores/lista-proveedores.component';
+import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
+import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
 
 
 
@@ -26,8 +30,13 @@ import { DetallesPlantaComponent } from './feature/planta/components/detalles-pl
     NavigationComponent,
     CrearPlantaComponent,
     ActualizarPlantaComponent,
-  
-    DetallesPlantaComponent
+
+    DetallesPlantaComponent,
+    ProveedorComponent,
+    ListaProveedoresComponent,
+    CrearProveedorComponent,
+    DetallesProveedorComponent,
+    ActualizarProveedorComponent
   ],
   imports: [
     BrowserModule,

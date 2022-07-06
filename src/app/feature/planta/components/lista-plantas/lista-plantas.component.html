@@ -1,31 +1,31 @@
 <h2>Lista Plantas</h2>
 <table class="table table-striped">
-    <thead class ="table-dark">
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>descripcion</th>
-            <th>Fecha Ingreso</th>
-            <th>Cantidad</th>
-            <th>Valor</th>
-            <th>Categoria</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let planta of planta">
-            <td>{{planta.idPlanta}}</td>
-            <td>{{planta.nombre}}</td>
-            <td>{{planta.descripcion}}</td>
-            <td>{{planta.fechaIngreso}}</td>
-            <td>{{planta.cantidad}}</td>
-            <td>{{planta.valor}}</td>
-            <td>{{planta.categoria}}</td>
-            <td>
-                <button (click)="actualizarPlanta(planta.idPlanta)" class="btn btn-info">Editar</button>
-                <button (click)="eliminarPlanta(planta.idPlanta)" class="btn btn-danger" style="margin: left 10px;">Eliminar</button>
-                <button (click)="verDetallesDeLaPlanta(planta.idPlanta)" class="btn btn-primary" style="margin: left 10px;">Detalles</button>
-            </td>
-        </tr>
-    </tbody>
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Fecha Ingreso</th>
+      <th>Cantidad</th>
+      <th>Valor</th>
+      <th>Categoria</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let planta of planta">
+      <td>{{planta.idPlanta}}</td>
+      <td>{{planta.nombre}}</td>
+      <td>{{planta.descripcion}}</td>
+      <td>{{planta.fechaIngreso}}</td>
+      <td>{{planta.cantidad}}</td>
+      <td>{{planta.valor}}</td>
+      <td>{{planta.categoria}}</td>
+      <td>
+        <button (click)="actualizarPlanta(planta.idPlanta)" class="Mb-1" style="margin:10px">Editar</button>
+        <button (click)="eliminarPlanta(planta.idPlanta)" class="Mb-1" style=" margin:10px;">Eliminar</button>
+        <button (click)="verDetallesDeLaPlanta(planta.idPlanta)" class="Mb-1" style=" margin:10px;">Detalles</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
