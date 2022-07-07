@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
@@ -11,21 +10,21 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
 })
 export class DetallesProveedorComponent implements OnInit {
 
-  id:number;
-  proveedor:Proveedor;
+  id: number;
+  proveedor: Proveedor;
 
-  constructor(private route:ActivatedRoute,private proveedorServicio:ProveedorService, private location:Location) { }
+  constructor(private route: ActivatedRoute, private proveedorServicio: ProveedorService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
     this.proveedor = new Proveedor();
-    this.proveedorServicio.obtenerProveedorPorId(this.id).subscribe(dato =>{
-        this.proveedor = dato;
+    this.proveedorServicio.obtenerProveedorPorId(this.id).subscribe(dato => {
+      this.proveedor = dato;
     });
   }
 
-  irAtras(){
-    this.location.back;
+  irAtras() {
+  //  this.location.back;
   }
 
 }

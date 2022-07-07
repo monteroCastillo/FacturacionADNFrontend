@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
@@ -10,27 +11,28 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
 })
 export class ActualizarProveedorComponent implements OnInit {
 
-  id:number;
-  proveedor:Proveedor = new Proveedor();
-  constructor(private proveedorService:ProveedorService, private router:Router, private route:ActivatedRoute) { }
+  id: number;
+  proveedor: Proveedor = new Proveedor();
+  proveedorForm: FormGroup;
+  constructor(private proveedorService: ProveedorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.proveedorService.obtenerProveedorPorId(this.id).subscribe(dato =>{
+    this.id = this.route.snapshot.params.id;
+    this.proveedorService.obtenerProveedorPorId(this.id).subscribe(dato => {
       this.proveedor = dato;
     }, error => console.log(error));
   }
 
-  irAlaListaDeProveedores(){
+  irAlaListaDeProveedores() {
     this.router.navigate(['/proveedores']);
     //swal('Proveedor actualizada',`La  proveedor ${this.proveedor.nombre} ha sido actualizada con exito`,`success`);
   }
 
-   onSubmit(){
+  onSubmit() {
     this.proveedorService.actualizarProveedor(this.proveedor).subscribe(() => {
       this.irAlaListaDeProveedores();
-     // this.proveedorService.crearProveedor(this.proveedor);
-    },error => console.log(error));
+      // this.proveedorService.crearProveedor(this.proveedor);
+    }, error => console.log(error));
   }
 
 }

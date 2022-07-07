@@ -1,25 +1,65 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { of } from 'rxjs';
+import { Planta } from '../../shared/models/planta';
+import { PlantaService } from '../../shared/services/planta.service';
 import { ListaPlantasComponent } from './lista-plantas.component';
 
 describe('ListaPlantasComponent', () => {
   let component: ListaPlantasComponent;
   let fixture: ComponentFixture<ListaPlantasComponent>;
+  let plantaService: PlantaService;
+  const listaPlantas: Planta[]= [
+    {
+      idPlanta: 0,
+      nombre: 'Orquidea Cattleya triannae',
+      descripcion: 'flor Internacional',
+      fechaIngreso: new Date('2022-06-14'),
+      cantidad: 14,
+      valor: 80000.00,
+      categoria: 'PLANTASDEFLOR'
+    },
+    {
+      idPlanta: 12,
+      nombre: 'Margarita',
+      descripcion: 'flor amarillenta',
+      fechaIngreso: new Date('2022-06-08'),
+      cantidad: 100,
+      valor: 12000.00,
+      categoria: 'PLANTASDEFLOR'
+    },
+  ];
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ListaPlantasComponent ]
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ListaPlantasComponent],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers: [PlantaService, HttpService]
     })
-    .compileComponents();
-  });
+      .compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListaPlantasComponent);
     component = fixture.componentInstance;
+    plantaService = TestBed.inject(PlantaService);
+    spyOn(plantaService, 'obtenerListaDePlantas').and.returnValue(
+      of(listaPlantas)
+    );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    component.listaPlantas.subscribe(resultado => {
+      expect(2).toBe(resultado.length);
+    });
   });
 });

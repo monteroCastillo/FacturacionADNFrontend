@@ -10,27 +10,26 @@ import { VentaService } from '../../shared/services/venta.service';
 })
 export class VentaComponent implements OnInit {
 
-  fecha:string;
-  valorSuma:number;
-  venta:Venta = new Venta();
-  constructor(private ventaServicio:VentaService,  private route:ActivatedRoute) { }
+  fecha: string;
+  valorSuma: number;
+  venta: Venta = new Venta();
+  constructor(private ventaServicio: VentaService, private route: ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
-    this.fecha = this.route.snapshot.params['fecha'];
-    this.ventaServicio.obtenerVenta(this.fecha).subscribe(dato =>{
+    this.fecha = this.route.snapshot.params.fecha;
+    this.ventaServicio.obtenerVenta(this.fecha).subscribe(dato => {
       this.valorSuma = dato;
-    }, error =>console.log(error));
+    }, error => console.log(error));
   }
 
-  calcularSuma(fecha:string){
-    this.ventaServicio.obtenerVenta(fecha).subscribe(dato =>{
-      console.log("El valor que llega del dato es: " + dato);
+  calcularSuma(fecha: string) {
+    this.ventaServicio.obtenerVenta(fecha).subscribe(dato => {
+      console.log('El valor que llega del dato es: ' + dato);
       this.venta.ventaDia = dato;
 
-
-    }, error =>console.log(error));
+    }, error => console.log(error));
   }
 
 
@@ -42,12 +41,12 @@ export class VentaComponent implements OnInit {
   } */
 
 
-  onSubmit (){
+  onSubmit() {
     /* this.fecha = this.route.snapshot.params['fecha'];
     this.ventaServicio.obtenerVenta(this.fecha).subscribe(dato =>{
       this.valorSuma = dato;
     }, error =>console.log(error)); */
-    }
+  }
 }
 
 

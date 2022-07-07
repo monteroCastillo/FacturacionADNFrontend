@@ -16,9 +16,25 @@
   </form>
 </div> -->
 
+<div class="card text-center">
+  <div class="card-header">
 
-<label>Fecha : </label>
-<input type="date"   #fechaInput="ngModel" required [(ngModel)]="venta.ventaDia" >
-<button [disabled]="fechaInput.invalid" (click)="calcularSuma(fechaInput.value)" class="Mb-1" style="margin:10px">Consultar</button>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Consulta Ventas Por Dia</h5>
+    <p class="card-text">Ingrese la fecha en la cual quiere consultar las ventas</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    <input type="date"   #fechaInput="ngModel" required [(ngModel)]="venta.ventaDia" >
+    <br><br>
+    <button [disabled]="fechaInput.invalid" (click)="calcularSuma(fechaInput.value)" class="mb-1 btn btn-primary" >Consultar</button>
+    <br><br>
+    <label><b>El valor vendido fue: </b> {{ venta.ventaDia }}</label>
+    <br>
+  </div>
+  <div class="card-footer text-muted">
 
-<label><b>El valor vendido fue: </b> {{ venta.ventaDia }}</label>
+  </div>
+</div>
+
+
+

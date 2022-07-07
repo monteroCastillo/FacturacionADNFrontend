@@ -1,3 +1,3 @@
 export class Venta {
-  ventaDia:number;
+  ventaDia: number;
 }

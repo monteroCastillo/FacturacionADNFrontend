@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
@@ -11,26 +11,39 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
 })
 export class CrearProveedorComponent implements OnInit {
 
-  proveedor :Proveedor = new Proveedor();
-  constructor(private proveedorServicio:ProveedorService, private router:Router) { }
+  proveedorForm: FormGroup;
 
-  ngOnInit(): void {
+  proveedor: Proveedor = new Proveedor();
+  constructor(private proveedorServicio: ProveedorService, private router: Router) { }
+
+  ngOnInit() {
+    this.construirFormularioProveedor();
   }
 
-  crearProveedor(){
-    this.proveedorServicio.crearProveedor(this.proveedor).subscribe({next:() =>{
-      //  this.getAll();
-      }, error: () =>{}
-    })
+  crearProveedor() {
+    this.proveedorServicio.crearProveedor(this.proveedor).subscribe({
+      next: () => {
+
+      }, error: () => { }
+    });
   }
 
-  irALaListaDeProveedores(){
-    this.router.navigate(['/proveedores'])
+  irALaListaDeProveedores() {
+    this.router.navigate(['/proveedores']);
   }
 
-  onSubmit(){
+  crear() {
     this.crearProveedor();
     console.log(this.proveedor);
+  }
+
+  private construirFormularioProveedor(){
+    this.proveedorForm = new FormGroup({
+      id: new FormControl(''),
+      nombre: new FormControl('',
+        [Validators.required]),
+      descripcion: new FormControl('', [Validators.required])
+    });
   }
 
 }

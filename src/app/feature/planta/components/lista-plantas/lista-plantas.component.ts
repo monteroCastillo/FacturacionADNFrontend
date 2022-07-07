@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Planta } from 'src/app/feature/planta/shared/models/planta';
 import { PlantaService } from 'src/app/feature/planta/shared/services/planta.service';
 
@@ -11,38 +12,37 @@ import { PlantaService } from 'src/app/feature/planta/shared/services/planta.ser
 })
 export class ListaPlantasComponent implements OnInit {
 
-  planta:Planta[];
+  planta: Planta[];
+  public listaPlantas: Observable<Planta[]>;
 
-  constructor (private plantaServicio:PlantaService, private router:Router){ }
+  constructor(private plantaServicio: PlantaService, private router: Router) { }
 
   ngOnInit(): void {
+    this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();
     this.obtenerPlanta();
   }
 
-  actualizarPlanta(id:number){
-    this.router.navigate(['actualizar-planta',id])
+  verDetallesDeLaPlanta(id: number) {
+    this.router.navigate(['planta/detalles-planta', id]);
   }
 
-  eliminarPlanta(id:number){
-    this.plantaServicio.eliminarPlanta(id).subscribe(dato =>{
+  actualizarPlanta(id: number) {
+    this.router.navigate(['planta/actualizar-planta', id]);
+  }
+
+  eliminarPlanta(id: number) {
+    this.plantaServicio.eliminarPlanta(id).subscribe(dato => {
       console.log(dato);
       this.obtenerPlanta();
     });
   }
 
-  private obtenerPlanta(){
-    this.plantaServicio.obtenerListaDePlantas().subscribe(dato =>{
+  private obtenerPlanta() {
+    this.plantaServicio.obtenerListaDePlantas().subscribe(dato => {
       this.planta = dato;
 
     });
   }
-
-
-  verDetallesDeLaPlanta(id:number){
-      this.router.navigate(['detalles-planta',id]);
-  }
-
-
 }
 
 
