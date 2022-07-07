@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let planta of planta">
-        <td>{{planta.idPlanta}}</td>
+        <td>{{planta.id}}</td>
         <td>{{planta.nombre}}</td>
         <td>{{planta.descripcion}}</td>
         <td>{{planta.fechaIngreso}}</td>
@@ -23,9 +23,9 @@
         <td>{{planta.valor}}</td>
         <td>{{planta.categoria}}</td>
         <td>
-          <button (click)="actualizarPlanta(planta.idPlanta)" class="mr-1 btn btn-primary"  >Editar</button>
-          <button (click)="eliminarPlanta(planta.idPlanta)" class="mr-1 btn btn-danger" >Eliminar</button>
-          <button (click)="verDetallesDeLaPlanta(planta.idPlanta)" class=" btn btn-success" >Detalles</button>
+          <button (click)="actualizarPlanta(planta.id)" class="mr-1 btn btn-primary"  >Editar</button>
+          <button (click)="eliminarPlanta(planta.id)" class="mr-1 btn btn-danger" >Eliminar</button>
+          <button (click)="verDetallesDeLaPlanta(planta.id)" class=" btn btn-success" >Detalles</button>
         </td>
       </tr>
     </tbody>
