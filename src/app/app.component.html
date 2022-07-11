@@ -7,7 +7,13 @@
           <a routerLink="crear-proveedor" routerLinkActive="active" class="nav-link">Crear Proveedor</a>
         </li>
         <li class="nav-item">
-          <a routerLink="venta" routerLinkActive="active" class="nav-link">Venta</a>
+          <a routerLink="venta/:fecha" routerLinkActive="active" class="nav-link">Venta</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="crear-factura" routerLinkActive="active" class="nav-link">Factura</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="listar-factura" routerLinkActive="active" class="nav-link">ListarFactura</a>
         </li>
     </ul>
 
@@ -28,5 +34,5 @@
     <!--<router-outlet></router-outlet> -->
   <!--   <app-lista-plantas></app-lista-plantas> -->
     <!-- <app-lista-proveedores></app-lista-proveedores> -->
-    <app-venta></app-venta>
+    <!-- <app-venta></app-venta> -->
 </div>

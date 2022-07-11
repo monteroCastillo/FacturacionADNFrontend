@@ -20,7 +20,7 @@ export class ListaProveedoresComponent implements OnInit {
   ngOnInit(): void {
     // this.obtenerProveedor();
     this.listaProveedores = this.proveedorServicio.consultar();
-    console.log('ESTE ES EL VALOR DEL ARREGLO ' + this.listaProveedores);
+
   }
   actualizarProveedor(id: number) {
     this.router.navigate(['actualizar-proveedor', id]);

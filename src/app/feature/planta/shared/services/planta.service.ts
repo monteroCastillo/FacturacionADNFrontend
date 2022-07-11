@@ -2,6 +2,7 @@ import { HttpService } from '@core/services/http.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Planta } from '../models/planta';
+import { PlantaPorProveedor } from '../models/PlantaPorProveedor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class PlantaService {
 
   private baseURL5 = 'http://localhost:8083/plantas/buscar';
 
+  private baseURL6 = 'http://localhost:8083/apiPlantaPorProveedor/crear';
+
   constructor(private httpClient: HttpService) { }
 
   obtenerListaDePlantas() {
@@ -32,6 +35,8 @@ export class PlantaService {
     return this.httpClient.doPut<Planta,boolean>(`${this.baseURL4}`, planta);
   }
 
+
+
   obtenerPlantaPorId(id: number): Observable<Planta> {
     return this.httpClient.doGet<Planta>(`${this.baseURL5}/${id}`);
   }
@@ -39,4 +44,13 @@ export class PlantaService {
   eliminarPlanta(id: number): Observable<object> {
     return this.httpClient.doDelete(`${this.baseURL3}/${id}`);
   }
+
+  crearPlantaPorProveedor(plantaPorProveedor: PlantaPorProveedor) {
+    console.log("Crea el servicio de planta por proveedor idPlanta " + plantaPorProveedor.idPlanta);
+    console.log("Crea el servicio de planta por proveedor idProveedor " + plantaPorProveedor.idProveedor);
+    return this.httpClient.doPost(`${this.baseURL6}`, plantaPorProveedor);
+  }
+
+
+
 }

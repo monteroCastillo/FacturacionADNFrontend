@@ -26,6 +26,14 @@ const routes: Routes = [
         component: ListaPlantasComponent,
       },
       {
+        path: 'lista-planta',
+        component: ListaPlantasComponent,
+      },
+      {
+        path: 'plantaPorProveedor',
+        component: ActualizarPlantaComponent,
+      },
+      {
         path: '**',
         redirectTo: 'lista-planta',
       },

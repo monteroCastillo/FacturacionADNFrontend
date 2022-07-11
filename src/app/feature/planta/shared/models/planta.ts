@@ -9,3 +9,5 @@ export class Planta {
   valor: number;
   categoria: string;
 }
+
+

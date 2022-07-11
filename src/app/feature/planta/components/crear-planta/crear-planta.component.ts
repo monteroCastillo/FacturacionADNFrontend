@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component} from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 
@@ -9,6 +12,8 @@ import { PlantaService } from '../../shared/services/planta.service';
   styleUrls: ['./crear-planta.component.css'],
 })
 export class CrearPlantaComponent  {
+
+
   planta: Planta = new Planta();
   constructor(private plantaServicio: PlantaService, private router: Router) {}
 
@@ -18,8 +23,12 @@ export class CrearPlantaComponent  {
     this.plantaServicio.crearPlanta(this.planta).subscribe(
       (dato) => {
         console.log(dato);
+        Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000})
       },
-      (error) => console.log(error)
+      (error:HttpErrorResponse) => {
+        console.log(error);
+        Swal.fire({title:error.error['mensaje'], icon:'error',timer:2000})
+      }
     );
   }
 
@@ -27,8 +36,13 @@ export class CrearPlantaComponent  {
     this.router.navigate(['/plantas']);
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.crearPlanta();
     console.log(this.planta);
+    form.resetForm();
+  }
+
+  clearForm(form: FormGroup){
+    form.reset();
   }
 }

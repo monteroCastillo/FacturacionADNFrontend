@@ -1,0 +1,29 @@
+<h2> Factura</h2>
+<div>
+  <label><b>Estado: </b>{{ factura.estado }}</label>
+</div>
+<div>
+  <label><b>ID Cliente: </b>{{ factura.cliente.id }}</label>
+</div>
+<div>
+  <label><b>Valor Total: </b>{{ factura.valorTotal }}</label>
+</div>
+<div>
+  <label><b>Fecha Creacion: </b>{{ factura.fechaIngreso }}</label>
+</div>
+<div>
+  <label><b>Fecha Domicilio: </b>{{ factura.fechaDomicilio }}</label>
+</div>
+
+<tr>
+  <th scope="col">ID</th>
+  <th scope="col">Cantidad</th>
+  <th scope="col">Producto</th>
+</tr>
+<tbody>
+  <tr *ngFor="let item of productos">
+    <th class="align-middle" scope="row">{{item.id}}</th>
+    <td class="align-middle">{{item.cantidad}}</td>
+    <td class="align-middle">{{item.planta.nombre}}</td>
+  </tr>
+</tbody>

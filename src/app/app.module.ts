@@ -16,6 +16,8 @@ import { ListaProveedoresComponent } from './feature/proveedor/components/lista-
 import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
 import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
 import { VentaComponent } from './feature/venta/components/venta/venta.component';
+import { ListarFacturaComponent } from './feature/factura/components/listar-factura/listar-factura.component';
+import { CrearFacturaComponent } from './feature/factura/components/crear-factura/crear-factura.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { VentaComponent } from './feature/venta/components/venta/venta.component
     CrearProveedorComponent,
     DetallesProveedorComponent,
     ActualizarProveedorComponent,
-    VentaComponent
+    VentaComponent,
+    ListarFacturaComponent,
+    CrearFacturaComponent
   ],
   imports: [
     BrowserModule,

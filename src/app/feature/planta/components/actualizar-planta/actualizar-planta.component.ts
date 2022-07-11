@@ -1,7 +1,12 @@
 //import  swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
+import {  FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Planta } from '../../shared/models/planta';
+import { Observable } from 'rxjs';
+import { Proveedor } from 'src/app/feature/proveedor/shared/models/proveedor';
+import { ProveedorService } from 'src/app/feature/proveedor/shared/services/proveedor.service';
+import { Planta} from '../../shared/models/planta';
+import { PlantaPorProveedor } from '../../shared/models/PlantaPorProveedor';
 import { PlantaService } from '../../shared/services/planta.service';
 
 @Component({
@@ -10,25 +15,25 @@ import { PlantaService } from '../../shared/services/planta.service';
   styleUrls: ['./actualizar-planta.component.css'],
 })
 export class ActualizarPlantaComponent implements OnInit {
+
+  plantaForm: FormGroup;
   id: number;
   planta: Planta = new Planta();
+  plantaPorProveedor: PlantaPorProveedor = new PlantaPorProveedor();
+  listaProveedores: Observable<Proveedor[]>;
+  listaPlantas: Observable<Planta[]>;
+  public codeValue: string;
   constructor(
+    private proveedorService: ProveedorService,
     private plantaService: PlantaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
-  /* ngOnInit(): void {
-    this.id = this.route.snapshot.params.id;
-    this.plantaService.obtenerPlantaPorId(this.id).subscribe(
-      (dato) => {
-        this.planta = dato;
-      },
-      (error) => console.log(error)
-    );
-  } */
-
   ngOnInit(): void {
+
+    this.listaProveedores = this.proveedorService.consultar();
+    this.listaPlantas = this.plantaService.obtenerListaDePlantas();
     this.id = this.route.snapshot.params.id;
     this.plantaService.obtenerPlantaPorId(this.id).subscribe({
       next: (dato) => {
@@ -36,7 +41,30 @@ export class ActualizarPlantaComponent implements OnInit {
       },
       error: (error) => console.log(error),
     });
+
+    this.deshabilitarFormularioPlanta();
   }
+
+  public saveCode(e): void {
+
+    console.log("El valor del evento es: "+e.target.value);
+
+
+
+     this.plantaPorProveedor={
+      idProveedor:  e.target.value,
+      idPlanta: this.id
+    }
+    console.log("El valor del id de la planta es: " + this.id);
+
+    console.log("El id de la planta"+this.plantaPorProveedor.idPlanta);
+    console.log("proveedor"+ this.plantaPorProveedor.idProveedor);
+
+    this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor);
+
+  }
+
+
 
   irAlaListaDePlantas() {
     this.router.navigate(['/plantas']);
@@ -45,11 +73,21 @@ export class ActualizarPlantaComponent implements OnInit {
 
   onSubmit() {
     this.plantaService.actualizarPlanta(this.planta).subscribe(
+      () => {},
+      (error) => console.log(error)
+    );
+    this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor).subscribe(
       () => {
         this.irAlaListaDePlantas();
-        // this.plantaService.crearPlanta(this.planta);
+
       },
       (error) => console.log(error)
     );
   }
+
+  private deshabilitarFormularioPlanta() {
+    this.plantaForm.get('nombre').disable();
+  }
+
+
 }

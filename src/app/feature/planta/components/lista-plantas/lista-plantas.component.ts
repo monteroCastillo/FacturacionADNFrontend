@@ -40,7 +40,6 @@ export class ListaPlantasComponent implements OnInit {
   private obtenerPlanta() {
     this.plantaServicio.obtenerListaDePlantas().subscribe(dato => {
       this.planta = dato;
-
     });
   }
 }

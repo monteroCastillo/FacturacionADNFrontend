@@ -1,0 +1,38 @@
+<div class ="col-md-6 offset-md-3">
+  <h3 class="text-center">Registro de Factura</h3>
+  <form (ngSubmit) = "onSubmit()" #myForm="ngForm">
+      <div class="form-group">
+          <label>Cliente:</label>
+          <input type = "number"
+          class="form-control"
+          id = "cliente"
+          [(ngModel)] = "facturaCrear.idCliente"
+          name="nombre"
+          >
+      </div>
+
+      <div class="form-group">
+          <label>Planta:</label>
+          <input type="text" list="codes"  (change)="saveCode($event)" class="form-control"
+          id = "planta" [(ngModel)] = "facturaCrear.comandoProductosFacturar" name="planta">
+          <datalist id="codes">
+            <option *ngFor="let c of listaPlantas | async" [value]="c.nombre" >{{c.id}}</option>
+
+
+          </datalist>
+      </div>
+
+      <div class="form-group">
+          <label>Fecha Ingreso:</label>
+          <input type = "date"
+          class="form-control"
+          id = "fechaIngreso"
+          [(ngModel)] = "facturaCrear.fechaIngreso"
+          name="fechaIngreso"
+          >
+      </div>
+
+
+      <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>

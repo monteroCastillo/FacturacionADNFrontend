@@ -8,12 +8,12 @@ import { MenuItem } from '@core/modelo/menu-item';
 //  styleUrls: ['./app.component.']
 })
 export class AppComponent {
-  title = 'app-base';
+  title = '';
   public companies: MenuItem[] = [
     { url: '/home', nombre: 'Home' },
     { url: '/planta', nombre: 'Planta' },
     { url: '/proveedor', nombre: 'Proveedor' },
-    { url: '/venta', nombre: 'Venta' }
+    { url: '/factura', nombre: 'Factura' },
   ];
 
 
