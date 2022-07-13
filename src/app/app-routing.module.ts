@@ -21,11 +21,11 @@ const routes: Routes = [
       import('./feature/planta/planta.module').then((m) => m.PlantaModule),
   },
 
-  { path: 'proveedor', component: ListaProveedoresComponent },
+  { path: 'listar-proveedor', component: ListaProveedoresComponent },
   { path: 'crear-proveedor', component: CrearProveedorComponent },
   { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent },
   { path: 'detalles-proveedor/:id', component: DetallesProveedorComponent },
-  { path: 'venta/fecha', component: VentaComponent },
+  { path: 'venta/:fecha', component: VentaComponent },
   { path: 'crear-factura', component: CrearFacturaComponent },
   { path: 'listar-factura', component: ListarFacturaComponent }
 ];

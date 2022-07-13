@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
@@ -13,7 +13,7 @@ export class DetallesProveedorComponent implements OnInit {
   id: number;
   proveedor: Proveedor;
 
-  constructor(private route: ActivatedRoute, private proveedorServicio: ProveedorService) { }
+  constructor(private route: ActivatedRoute, private proveedorServicio: ProveedorService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
@@ -24,7 +24,8 @@ export class DetallesProveedorComponent implements OnInit {
   }
 
   irAtras() {
-  //  this.location.back;
+    this.router.navigate(['listar-proveedor']);
+
   }
 
 }

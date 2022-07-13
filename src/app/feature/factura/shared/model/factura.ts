@@ -1,8 +1,8 @@
 
-import { Planta } from "src/app/feature/planta/shared/models/planta";
+import { Planta } from 'src/app/feature/planta/shared/models/planta';
 
 export class Factura {
-
+  id: number;
   idCliente: number;
   planta: Planta;
   fechaIngreso: Date;
@@ -11,7 +11,6 @@ export class Factura {
   fechaDomicilio?: Date;
   productos?: Productos;
   cliente?: Cliente;
-
 }
 
 export class Productos {

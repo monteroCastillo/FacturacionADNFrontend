@@ -70,6 +70,7 @@ export class CrearFacturaComponent implements OnInit {
       }
     }
 
+
     console.log("La Planta vendida es: " +JSON.stringify(this.plantasVendidas));
 
   }

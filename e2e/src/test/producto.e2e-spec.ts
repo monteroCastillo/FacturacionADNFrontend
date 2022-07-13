@@ -1,4 +1,4 @@
-import { NavbarPage } from '../page/navbar/navbar.po';
+/* import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { ProductoPage } from '../page/producto/producto.po';
 
@@ -35,3 +35,4 @@ describe('workspace-project Producto', () => {
         expect(producto.contarProductos()).toBe(6);
     });
 });
+ */

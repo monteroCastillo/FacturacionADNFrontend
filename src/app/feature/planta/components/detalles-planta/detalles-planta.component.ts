@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 
@@ -12,7 +12,7 @@ export class DetallesPlantaComponent implements OnInit {
 
   id: number;
   planta: Planta = new Planta();
-  constructor(private route: ActivatedRoute, private plantaServicio: PlantaService) { }
+  constructor(private route: ActivatedRoute, private plantaServicio: PlantaService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
@@ -23,7 +23,7 @@ export class DetallesPlantaComponent implements OnInit {
   }
 
   irAtras() {
-
+    this.router.navigate(['/planta/lista-plantas']);
   }
 
 }

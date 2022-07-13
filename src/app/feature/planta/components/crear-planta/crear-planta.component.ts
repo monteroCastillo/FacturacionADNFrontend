@@ -11,29 +11,33 @@ import { PlantaService } from '../../shared/services/planta.service';
   templateUrl: './crear-planta.component.html',
   styleUrls: ['./crear-planta.component.css'],
 })
-export class CrearPlantaComponent  {
-
-
+export class CrearPlantaComponent {
   planta: Planta = new Planta();
   constructor(private plantaServicio: PlantaService, private router: Router) {}
 
-
-
   crearPlanta() {
-    this.plantaServicio.crearPlanta(this.planta).subscribe(
-      (dato) => {
-        console.log(dato);
-        Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000})
+    this.plantaServicio.crearPlanta(this.planta).subscribe({
+      next: () => {
+        Swal.fire({
+          title: 'Registro realizado exitosamente!',
+          icon: 'success',
+          timer: 2000,
+        });
       },
-      (error:HttpErrorResponse) => {
+      error: (error: HttpErrorResponse) => {
         console.log(error);
-        Swal.fire({title:error.error['mensaje'], icon:'error',timer:2000})
-      }
-    );
+        Swal.fire({
+          title: error.error.mensaje,
+          icon: 'error',
+          timer: 2000,
+        });
+      },
+    });
+    this.router.navigate(['/planta/lista-plantas']);
   }
 
   irALaListaDePlantas() {
-    this.router.navigate(['/plantas']);
+    this.router.navigate(['/planta']);
   }
 
   onSubmit(form: NgForm) {
@@ -42,7 +46,7 @@ export class CrearPlantaComponent  {
     form.resetForm();
   }
 
-  clearForm(form: FormGroup){
+  clearForm(form: FormGroup) {
     form.reset();
   }
 }

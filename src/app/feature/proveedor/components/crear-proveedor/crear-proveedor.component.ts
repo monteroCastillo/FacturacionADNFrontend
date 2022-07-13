@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
@@ -23,9 +24,10 @@ export class CrearProveedorComponent implements OnInit {
   crearProveedor() {
     this.proveedorServicio.crearProveedor(this.proveedor).subscribe({
       next: () => {
-
+        Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000})
       }, error: () => { }
     });
+    this.router.navigate(['listar-proveedor']);
   }
 
   irALaListaDeProveedores() {

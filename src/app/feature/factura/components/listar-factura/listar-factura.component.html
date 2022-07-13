@@ -1,29 +1,43 @@
-<h2> Factura</h2>
-<div>
-  <label><b>Estado: </b>{{ factura.estado }}</label>
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Factura</h3>
+  <br>
+  <div class="text-left">
+    <div>
+      <label><strong>ID: </strong>{{ factura.id }}</label>
+    </div>
+    <div>
+      <label><strong>Estado: </strong>{{ factura.estado }}</label>
+    </div>
+    <div>
+      <label><strong>ID Cliente: </strong>{{ factura.cliente.id }}</label>
+    </div>
+    <div>
+      <label><strong>Valor Total: </strong>{{ factura.valorTotal }}</label>
+    </div>
+    <div>
+      <label><strong>Fecha Creacion: </strong>{{ factura.fechaIngreso }}</label>
+    </div>
+    <div>
+      <label><strong>Fecha Domicilio: </strong>{{ factura.fechaDomicilio }}</label>
+    </div>
+  </div>
+<br>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Producto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productos">
+          <th class="align-middle" scope="row">{{item.id}}</th>
+          <td class="align-middle">{{item.cantidad}}</td>
+          <td class="align-middle">{{item.planta.nombre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div>
-  <label><b>ID Cliente: </b>{{ factura.cliente.id }}</label>
-</div>
-<div>
-  <label><b>Valor Total: </b>{{ factura.valorTotal }}</label>
-</div>
-<div>
-  <label><b>Fecha Creacion: </b>{{ factura.fechaIngreso }}</label>
-</div>
-<div>
-  <label><b>Fecha Domicilio: </b>{{ factura.fechaDomicilio }}</label>
-</div>
-
-<tr>
-  <th scope="col">ID</th>
-  <th scope="col">Cantidad</th>
-  <th scope="col">Producto</th>
-</tr>
-<tbody>
-  <tr *ngFor="let item of productos">
-    <th class="align-middle" scope="row">{{item.id}}</th>
-    <td class="align-middle">{{item.cantidad}}</td>
-    <td class="align-middle">{{item.planta.nombre}}</td>
-  </tr>
-</tbody>

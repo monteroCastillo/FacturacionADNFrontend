@@ -101,7 +101,6 @@
         id = "valor"
         [(ngModel)] = "planta.valor"
         name = "valor"
-
         required
         placeholder="Digite el valor de la planta "
         #valor = "ngModel"
@@ -113,47 +112,23 @@
 
         </div>
       </div>
-      <!-- <p>Formato de imagen: <input type="text" name="formatoimagen" list="listaformatosimagen"></p>
-            CACTUSYSUCULENTAS
-            PLANTASINTERIOR
-            PLANTASDEFLOR
-            PALMAS
-            AROMATICASYMEDICINALES -->
 
-        <!-- <input type="text" list="codes" [(ngModel)]="codeValue" (change)="saveCode($event)">
-<datalist id="codes">
-  <option *ngFor="let c of codeList" [value]="c.name" >{{c.name}}</option>
-</datalist> -->
-
-        <div class="form-group">
-          <label>Categoria : </label>
-          <input type="text" list="codes" [(ngModel)]="planta.categoria" >
-          <datalist id="codes">
-            <option *ngFor="let c of planta.categoria" [value]="c.categoria">{{c.categoria}}</option>
-            #categoria = "ngModel"
-          </datalist>
-        </div>
-
-        <!-- <input type = "text"
+      <div class="form-group">
+      <label>Escoja una Categoria:
+        <input  list="categorias" name="myBrowser"
         class="form-control"
         id = "categoria"
         [(ngModel)] = "planta.categoria"
-        name = "categoria"
+        /></label>
+        <datalist id="categorias">
+            <option value = "CACTUSYSUCULENTAS">Cactus</option>
+            <option value = "PLANTASINTERIOR">Plantas Interior</option>
+            <option value = "PLANTASDEFLOR">Plantas de Flor</option>
+            <option value = "PALMAS">Palmas</option>
+            <option value = "AROMATICASYMEDICINALES">Aromaticas y medicinales</option>
 
-        required
-        placeholder="Digite la categoria de la planta "
-        #categoria = "ngModel"
-        > -->
-        <!-- <div class="alert alert-danger" *ngIf= "categoria.invalid && (cantidad.dirty || descripcion.touched)">
-          <div *ngIf = "valor.errors.required">
-            Seleccione la categoria por favor
-          </div>
-
-        </div> -->
-
-
-
-
+        </datalist>
+      </div>
 
       <div class="form-group">
         <label>Proveedor : </label>
@@ -162,13 +137,6 @@
         <option *ngFor="let c of listaProveedores | async" [value]="c.id" >{{c.nombre}}</option>
       </datalist>
 
-
-        <!-- <div class="alert alert-danger" *ngIf= "categoria.invalid && (cantidad.dirty || descripcion.touched)">
-          <div *ngIf = "valor.errors.required">
-            Seleccione la categoria por favor
-          </div>
-
-        </div> -->
       </div>
 
       <button [disabled]="plantaForm.invalid" type="submit" class="btn btn-success">Guardar</button>

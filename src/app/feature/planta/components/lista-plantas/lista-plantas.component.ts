@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Planta } from 'src/app/feature/planta/shared/models/planta';
 import { PlantaService } from 'src/app/feature/planta/shared/services/planta.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-plantas',
@@ -35,6 +36,8 @@ export class ListaPlantasComponent implements OnInit {
       console.log(dato);
       this.obtenerPlanta();
     });
+    Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000})
+    this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();
   }
 
   private obtenerPlanta() {
@@ -42,6 +45,13 @@ export class ListaPlantasComponent implements OnInit {
       this.planta = dato;
     });
   }
+
+  crearPlantaForm(){
+    this.router.navigate(['planta/crear-planta']);
+  }
+
+
+
 }
 
 

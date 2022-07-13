@@ -10,7 +10,7 @@ describe('ListarFacturaComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ListarFacturaComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
