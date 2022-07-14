@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { Component} from '@angular/core';
 import { Planta } from 'src/app/feature/planta/shared/models/planta';
 import { Cliente, Factura, Productos } from '../../shared/model/factura';
 import { FacturaService } from '../../shared/service/factura.service';
@@ -9,22 +8,19 @@ import { FacturaService } from '../../shared/service/factura.service';
   templateUrl: './listar-factura.component.html',
   styleUrls: ['./listar-factura.component.css']
 })
-export class ListarFacturaComponent implements OnInit {
-  id: number;
+export class ListarFacturaComponent  {
+  idPrueba: number;
   factura: Factura = new Factura();
   planta: Planta = new Planta();
-  productos: Productos= new Productos();
+  productos: Productos[]= [];
 
 
   cliente: Cliente = new Cliente();
-  constructor(private facturaService: FacturaService, private route: ActivatedRoute) { }
+  constructor(private facturaService: FacturaService) { }
 
-  ngOnInit(): void {
 
-    this.id = this.route.snapshot.params.id;
-    this.factura = new Factura();
-
-    this.facturaService.obtenerFacturaPorId(13).subscribe(dato =>  {
+  idBuscarFactura(){
+    this.facturaService.obtenerFacturaPorId(this.idPrueba).subscribe((dato: any) =>  {
       this.factura = dato;
       this.productos = dato.productos;
       this.cliente = dato.cliente;

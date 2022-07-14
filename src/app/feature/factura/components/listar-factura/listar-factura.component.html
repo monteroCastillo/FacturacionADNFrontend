@@ -2,23 +2,28 @@
   <h3 class="text-center">Factura</h3>
   <br>
   <div class="text-left">
-    <div>
-      <label><strong>ID: </strong>{{ factura.id }}</label>
+    <div style="display: flex; gap :5px">
+
+      <input [(ngModel)]="idPrueba"  class="form-control"  >
+      <button (click)="idBuscarFactura()"  class="btn btn-primary">Buscar</button>
     </div>
     <div>
-      <label><strong>Estado: </strong>{{ factura.estado }}</label>
+      <label><strong>ID: </strong>{{ factura?.id }}</label>
     </div>
     <div>
-      <label><strong>ID Cliente: </strong>{{ factura.cliente.id }}</label>
+      <label><strong>Estado: </strong>{{ factura?.estado }}</label>
     </div>
     <div>
-      <label><strong>Valor Total: </strong>{{ factura.valorTotal }}</label>
+      <label><strong>ID Cliente: </strong>{{ factura?.cliente?.id }}</label>
     </div>
     <div>
-      <label><strong>Fecha Creacion: </strong>{{ factura.fechaIngreso }}</label>
+      <label><strong>Valor Total: </strong>{{ factura?.valorTotal }}</label>
     </div>
     <div>
-      <label><strong>Fecha Domicilio: </strong>{{ factura.fechaDomicilio }}</label>
+      <label><strong>Fecha Creacion: </strong>{{ factura?.fechaIngreso }}</label>
+    </div>
+    <div>
+      <label><strong>Fecha Domicilio: </strong>{{ factura?.fechaDomicilio }}</label>
     </div>
   </div>
 <br>
@@ -33,9 +38,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of productos">
-          <th class="align-middle" scope="row">{{item.id}}</th>
-          <td class="align-middle">{{item.cantidad}}</td>
-          <td class="align-middle">{{item.planta.nombre}}</td>
+          <th class="align-middle" scope="row">{{item?.id}}</th>
+          <td class="align-middle">{{item?.cantidad}}</td>
+          <td class="align-middle">{{item?.planta?.nombre}}</td>
         </tr>
       </tbody>
     </table>

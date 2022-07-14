@@ -45,7 +45,7 @@ describe('ListaProveedoresComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
     component.listaProveedores.subscribe((resultado) => {
       expect(2).toBe(resultado.length);

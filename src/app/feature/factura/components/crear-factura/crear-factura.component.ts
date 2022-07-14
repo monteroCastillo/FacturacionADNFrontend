@@ -22,9 +22,6 @@ export class CrearFacturaComponent implements OnInit {
   plantasVendidas: Planta = new Planta();
   plantasVendidasArray: Planta[] = [];
 
-
-
-
   constructor(private facturaServicio: FacturaService, private plantaService: PlantaService) { }
 
   ngOnInit(): void {
@@ -34,14 +31,14 @@ export class CrearFacturaComponent implements OnInit {
       this.plantaLista = planta;
 
     });
-    console.log("Planta Array "+ this.plantasVendidasArray);
 
   }
 
   crearFactura(){
+    console.log('ESTA ES LA FACTURA: '+JSON.stringify(this.facturaCrear));
     this.facturaServicio.crearFactura(this.facturaCrear).subscribe(
       (dato) => {
-        console.log(dato);
+        console.log('Esto es lo que devuelve: '+JSON.stringify(dato));
       },
       (error) => console.log(error)
     );
@@ -50,28 +47,22 @@ export class CrearFacturaComponent implements OnInit {
   onSubmit() {
 
     this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
-    console.log("comandoProductos " + this.facturaCrear.comandoProductosFacturar);
-    console.log("plantasVendidas " +JSON.stringify( this.plantasVendidas));
+
     this.crearFactura();
 
-    console.log("FACTURA "+ JSON.stringify(this.factura));
   }
 
   public saveCode(e): void {
 
-    console.log("El valor del evento es: "+ e.target.value);
-    console.log("El valor del string es: "+ this.codeValue)
-
-    for(var i = 0; i< this.plantaLista.length; i++){
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for(let i = 0; i< this.plantaLista.length; i++){
       if(this.plantaLista[i].nombre == e.target.value){
         this.plantasVendidas =(this.plantaLista[i]);
         this.plantasVendidasArray.push(this.plantasVendidas);
         break;
       }
     }
-
-
-    console.log("La Planta vendida es: " +JSON.stringify(this.plantasVendidas));
+    console.log('La Planta vendida es: ' +JSON.stringify(this.plantasVendidas));
 
   }
 

@@ -7,7 +7,7 @@
         <label>Nombre : </label>
         <input type = "text"
         class="form-control"
-        id = "nombre"
+        id = "planta-nombre"
         [(ngModel)] = "planta.nombre"
         name = "nombre"
         required
@@ -59,7 +59,7 @@
         <label>Fecha de ingreso : </label>
         <input type = "date"
         class="form-control"
-        id = "fechaIngreso"
+        id = "planta-fechaIngreso"
         [(ngModel)] = "planta.fechaIngreso"
         name = "fechaIngreso"
         required
@@ -78,7 +78,7 @@
         <label>Cantidad : </label>
         <input type = "number"
         class="form-control"
-        id = "cantidad"
+        id = "planta-cantidad"
         [(ngModel)] = "planta.cantidad"
         name = "cantidad"
 
@@ -98,7 +98,7 @@
         <label>Valor : </label>
         <input type = "number"
         class="form-control"
-        id = "valor"
+        id = "planta-valor"
         [(ngModel)] = "planta.valor"
         name = "valor"
         required
@@ -114,26 +114,28 @@
       </div>
 
       <div class="form-group">
-      <label>Escoja una Categoria:
-        <input  list="categorias" name="myBrowser"
+        <label>Categoria : </label>
+        <input type = "text"
         class="form-control"
-        id = "categoria"
+        id = "planta-categoria"
         [(ngModel)] = "planta.categoria"
-        /></label>
-        <datalist id="categorias">
-            <option value = "CACTUSYSUCULENTAS">Cactus</option>
-            <option value = "PLANTASINTERIOR">Plantas Interior</option>
-            <option value = "PLANTASDEFLOR">Plantas de Flor</option>
-            <option value = "PALMAS">Palmas</option>
-            <option value = "AROMATICASYMEDICINALES">Aromaticas y medicinales</option>
+        name = "categoria"
+        required
+        placeholder="Digite La categoria de la planta "
+        #categoria = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "valor.invalid && (cantidad.dirty || descripcion.touched)">
+          <div *ngIf = "valor.errors.required">
+            Digite el valor por favor
+          </div>
 
-        </datalist>
+        </div>
       </div>
 
       <div class="form-group">
         <label>Proveedor : </label>
-        <input type="text" list="codes" [(ngModel)]="codeValue" (change)="saveCode($event)">
-      <datalist id="codes">
+        <input type="text" list="codes"  (change)="saveCode($event)" class="form-control">
+      <datalist id="codes" >
         <option *ngFor="let c of listaProveedores | async" [value]="c.id" >{{c.nombre}}</option>
       </datalist>
 

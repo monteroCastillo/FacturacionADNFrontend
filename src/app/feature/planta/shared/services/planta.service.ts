@@ -35,8 +35,6 @@ export class PlantaService {
     return this.httpClient.doPut<Planta,boolean>(`${this.baseURL4}`, planta);
   }
 
-
-
   obtenerPlantaPorId(id: number): Observable<Planta> {
     return this.httpClient.doGet<Planta>(`${this.baseURL5}/${id}`);
   }
@@ -46,8 +44,7 @@ export class PlantaService {
   }
 
   crearPlantaPorProveedor(plantaPorProveedor: PlantaPorProveedor) {
-    console.log("Crea el servicio de planta por proveedor idPlanta " + plantaPorProveedor.idPlanta);
-    console.log("Crea el servicio de planta por proveedor idProveedor " + plantaPorProveedor.idProveedor);
+
     return this.httpClient.doPost(`${this.baseURL6}`, plantaPorProveedor);
   }
 

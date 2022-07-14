@@ -1,4 +1,4 @@
-//import  swal  from 'sweetalert2';
+
 import { Component, OnInit } from '@angular/core';
 import {  FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,51 +42,42 @@ export class ActualizarPlantaComponent implements OnInit {
       error: (error) => console.log(error),
     });
 
-    this.deshabilitarFormularioPlanta();
   }
 
   public saveCode(e): void {
 
-    console.log("El valor del evento es: "+e.target.value);
+    console.log('El valor del evento es: '+e.target.value);
 
+    console.log('El valor de planta por proveedor recien entra al metodo es:' + JSON.stringify(this.plantaPorProveedor));
 
-
-     this.plantaPorProveedor={
+    this.plantaPorProveedor={
       idProveedor:  e.target.value,
       idPlanta: this.id
-    }
-    console.log("El valor del id de la planta es: " + this.id);
+    };
+    console.log('El valor del id de la planta es: ' + this.id);
 
-    console.log("El id de la planta"+this.plantaPorProveedor.idPlanta);
-    console.log("proveedor"+ this.plantaPorProveedor.idProveedor);
-
-    this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor);
+    console.log('El id de la planta'+this.plantaPorProveedor.idPlanta);
+    console.log('proveedor'+ this.plantaPorProveedor.idProveedor);
 
   }
 
-
-
   irAlaListaDePlantas() {
-    this.router.navigate(['/plantas']);
-    //swal('Planta actualizada',`La  planta ${this.planta.nombre} ha sido actualizada con exito`,`success`);
+    this.router.navigate(['/planta/lista-plantas']);
+
   }
 
   onSubmit() {
     this.plantaService.actualizarPlanta(this.planta).subscribe(
-      () => {},
-      (error) => console.log(error)
-    );
-    this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor).subscribe(
-      () => {
-        this.irAlaListaDePlantas();
+      () => window.alert('Registro Actualizado')
 
-      },
-      (error) => console.log(error)
     );
-  }
+    if(JSON.stringify(this.plantaPorProveedor) != '{}'){
+      this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor).subscribe(
+        () => window.alert('Proveedor Agregado a la planta')
 
-  private deshabilitarFormularioPlanta() {
-    this.plantaForm.get('nombre').disable();
+      );
+    }
+    this.irAlaListaDePlantas();
   }
 
 

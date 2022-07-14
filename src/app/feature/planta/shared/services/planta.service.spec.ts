@@ -15,7 +15,7 @@ describe('PlantaService', () => {
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [PlantaService, HttpService],
+      providers: [PlantaService, HttpService]
     });
     httpMock = injector.inject(HttpTestingController);
     service = TestBed.inject(PlantaService);

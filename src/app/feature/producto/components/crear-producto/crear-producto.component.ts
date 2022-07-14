@@ -12,7 +12,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
-  
+
   constructor(protected productoServices: ProductoService) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class CrearProductoComponent implements OnInit {
 
   crear() {
     if(this.productoForm.valid){
-      this.productoServices.guardar(this.productoForm.value).subscribe(()=>window.alert('usuario creado'));
+      this.productoServices.guardar(this.productoForm.value).subscribe(()=>window.alert('Registro Actualizado'));
     }
   }
 
