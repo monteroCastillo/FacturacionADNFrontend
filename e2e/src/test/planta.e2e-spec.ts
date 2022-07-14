@@ -1,6 +1,7 @@
 import { AppPage } from '../app.po';
 import { PlantaPage } from '../page/planta/planta.po';
 import { NavbarPage } from '../page/navbar/navbar.po';
+import { browser } from 'protractor';
 
 describe('workspace-project Planta', () => {
   let page: AppPage;
@@ -22,6 +23,7 @@ describe('workspace-project Planta', () => {
     const VALOR_PLANTA = 30000;
     const CATEGORIA_PLANTA = 'PLANTASINTERIOR';
 
+    page.navigateTo();
     navBar.clickBotonPlanta();
     planta.clickBotonCrearPlanta();
     planta.ingresarNombre(NOMBRE_PLANTA);
@@ -30,10 +32,8 @@ describe('workspace-project Planta', () => {
     planta.ingresarCantidad(CANTIDAD_PLANTA);
     planta.ingresarValor(VALOR_PLANTA);
     planta.ingresarCategoria(CATEGORIA_PLANTA);
-
-    page.navigateTo();
-    navBar.clickBotonPlanta();
-    planta.clickBotonCrearPlanta();
+    browser.sleep(5000);
+    planta.clickBotonGuardarPlanta();
     expect(1).toBe(planta.contarPlantas());
 
   });
@@ -41,9 +41,9 @@ describe('workspace-project Planta', () => {
   it('Deberia listar plantas', () => {
     page.navigateTo();
     navBar.clickBotonPlanta();
-    planta.clickBotonListarPlanta();
-
     expect(planta.contarPlantas()).toBe(1);
   });
 
 });
+
+

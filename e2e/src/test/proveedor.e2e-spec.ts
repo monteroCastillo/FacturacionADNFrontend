@@ -27,18 +27,17 @@ describe('workspace-project Proveedor', () =>{
     proveedor.ingresarDireccion(DIRECCION_PROVEEDOR);
     proveedor.ingresarTelefono(TELEFONO_PROVEEDOR);
     proveedor.ingresarPaginaWeb(PAGINA_WEB_PROVEEDOR);
-
-    page.navigateTo();
-    navBar.clickBotonProveedor();
     proveedor.clickBotonCrearProveedores();
+
     expect(1).toBe(proveedor.contarProveedores());
   });
 
   it('Deberia listar Proveedores', ()=>{
     page.navigateTo();
     navBar.clickBotonProveedor();
-    proveedor.clickBotonCrearProveedores();
-
     expect(proveedor.contarProveedores()).toBe(1);
   });
-})
+});
+
+
+

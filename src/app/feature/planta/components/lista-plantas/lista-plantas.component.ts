@@ -23,6 +23,10 @@ export class ListaPlantasComponent implements OnInit {
     this.obtenerPlanta();
   }
 
+  crearPlantaForm(){
+    this.router.navigate(['planta/crear-planta']);
+  }
+
   verDetallesDeLaPlanta(id: number) {
     this.router.navigate(['planta/detalles-planta', id]);
   }
@@ -36,7 +40,7 @@ export class ListaPlantasComponent implements OnInit {
       console.log(dato);
       this.obtenerPlanta();
     });
-    Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000})
+    Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000});
     this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();
   }
 
@@ -45,12 +49,6 @@ export class ListaPlantasComponent implements OnInit {
       this.planta = dato;
     });
   }
-
-  crearPlantaForm(){
-    this.router.navigate(['planta/crear-planta']);
-  }
-
-
 
 }
 

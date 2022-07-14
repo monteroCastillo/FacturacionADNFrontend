@@ -28,15 +28,18 @@ export class VentaComponent implements OnInit {
       next: (dato) => {
         console.log('El valor que llega del dato al metodo es: ' + dato);
         this.venta.ventaDia = dato;
-
+        if(dato ===null){
+          Swal.fire({
+            title: 'No hay registros en esa fecha',
+            icon: 'error',
+            timer: 2000
+          });
+        }
       },
       error: () => {
-        Swal.fire({
-          title: 'No hay registros en esa fecha',
-          icon: 'error',
-          timer: 2000
-        });
       },
     });
   }
 }
+
+

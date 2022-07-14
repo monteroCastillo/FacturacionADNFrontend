@@ -24,7 +24,7 @@ export class CrearProveedorComponent implements OnInit {
   crearProveedor() {
     this.proveedorServicio.crearProveedor(this.proveedor).subscribe({
       next: () => {
-        Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000})
+        Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000});
       }, error: () => { }
     });
     this.router.navigate(['listar-proveedor']);

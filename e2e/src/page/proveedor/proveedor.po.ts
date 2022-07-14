@@ -1,14 +1,14 @@
 import {by, element}from 'protractor';
 
 export class ProveedorPage {
-  private linkCrearProveedor = element(by.id('linkCrearProveedor'));
+  private linkCrearProveedor = element(by.id('botonCrearProveedor'));
   private linkListarProveedor = element(by.id('linkListarProveedor'));
   private inputIdProveedor = element(by.id('id'));
   private inputNombreProveedor = element(by.id('nombre'));
   private inputDireccionProveedor = element(by.id('direccion'));
   private inputTelefonoProveedor = element(by.id('telefono'));
   private inputPaginaWebProveedor = element(by.id('paginaWeb'));
-  private listaProveedores = element.all(by.id('proveedores'));
+  private listaProveedores = element.all(by.id('listaTablaProveedores'));
   private guardarProveedor = element(by.id('guardarPlanta'));
 
   async clickBotonCrearProveedores(){

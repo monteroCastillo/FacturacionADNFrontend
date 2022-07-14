@@ -1,16 +1,16 @@
 import {by, element } from 'protractor';
 
 export class PlantaPage{
-  private linkCrearPlanta = element(by.id('linkCrearPlanta'));
-  private linkListarPlanta = element(by.id('linkListarPlanta'));
-  private inputNombrePlanta = element(by.id('nombre'));
-  private inputDescripcionPlanta = element(by.id('descripcion'));
-  private inputFechaIngreso = element(by.id('fechaIngreso'));
-  private inputCantidadPlanta = element(by.id('cantidad'));
-  private inputValorPlanta = element(by.id('valor'));
-  private inputCategoriaPlanta = element(by.id('categoria'));
-  private listaPlanta = element.all(by.id('plantas'));
-  private guardarPlanta = element(by.id('botonGuardar'));
+  private linkCrearPlanta = element(by.id('botonCrearPlanta'));
+  private linkListarPlanta = element(by.id('tablaListaPlantas'));
+  private inputNombrePlanta = element(by.id('planta-nombre'));
+  private inputDescripcionPlanta = element(by.id('planta-descripcion'));
+  private inputFechaIngreso = element(by.id('planta-fechaIngreso'));
+  private inputCantidadPlanta = element(by.id('planta-cantidad'));
+  private inputValorPlanta = element(by.id('planta-valor'));
+  private inputCategoriaPlanta = element(by.id('planta-categoria'));
+  private listaPlanta = element.all(by.id('tablaListaPlantas'));
+  private guardarPlanta = element(by.id('guardarPlanta'));
 
   async clickBotonCrearPlanta(){
     await this.linkCrearPlanta.click();
@@ -45,7 +45,7 @@ export class PlantaPage{
   }
 
   async contarPlantas(){
-    await this.listaPlanta.count();
+    return this.listaPlanta.count();
   }
 
   async clickBotonGuardarPlanta() {
