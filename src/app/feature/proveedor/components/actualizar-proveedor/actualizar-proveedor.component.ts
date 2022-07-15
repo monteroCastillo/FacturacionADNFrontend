@@ -20,19 +20,19 @@ export class ActualizarProveedorComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.proveedorService.obtenerProveedorPorId(this.id).subscribe(dato => {
       this.proveedor = dato;
-    }, error => console.log(error));
+    });
   }
 
   irAlaListaDeProveedores() {
     this.router.navigate(['/proveedor/listar-proveedores']);
-    //swal('Proveedor actualizada',`La  proveedor ${this.proveedor.nombre} ha sido actualizada con exito`,`success`);
+
   }
 
   onSubmit() {
     this.proveedorService.actualizarProveedor(this.proveedor).subscribe(() => {
       this.irAlaListaDeProveedores();
-      // this.proveedorService.crearProveedor(this.proveedor);
-    }, error => console.log(error));
+
+    });
   }
 
 }

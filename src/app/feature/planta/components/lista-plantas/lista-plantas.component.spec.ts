@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 import { ListaPlantasComponent } from './lista-plantas.component';
@@ -62,4 +63,12 @@ describe('ListaPlantasComponent', () => {
       expect(2).toBe(resultado.length);
     });
   });
+
+  it('Deberia eliminar registro',() => {
+    spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
+    component.eliminarPlanta(1);
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
+  });
+
 });

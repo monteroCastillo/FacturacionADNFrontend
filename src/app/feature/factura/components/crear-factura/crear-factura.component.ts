@@ -5,7 +5,6 @@ import { PlantaService } from 'src/app/feature/planta/shared/services/planta.ser
 import { Factura } from '../../shared/model/factura';
 import { FacturaCrear } from '../../shared/model/factura-crear';
 import { FacturaService } from '../../shared/service/factura.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-factura',
@@ -13,7 +12,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./crear-factura.component.css']
 })
 export class CrearFacturaComponent implements OnInit {
-  facturaForm: FormGroup;
 
   factura: Factura = new Factura();
   facturaCrear: FacturaCrear = new FacturaCrear();
@@ -26,7 +24,6 @@ export class CrearFacturaComponent implements OnInit {
   constructor(private facturaServicio: FacturaService, private plantaService: PlantaService) { }
 
   ngOnInit(): void {
-    this.construirFormularioFactura();
     this.listaPlantas = this.plantaService.obtenerListaDePlantas();
     this.listaPlantas.subscribe(planta =>{
 
@@ -35,32 +32,28 @@ export class CrearFacturaComponent implements OnInit {
     });
   }
 
-  crear() {
-    console.log('Valor del facturaForm ' +JSON.stringify(this.facturaForm));
-    this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
-    this.facturaServicio.crearFactura(this.facturaForm.value).subscribe(
+  crearFactura(){
+    this.facturaServicio.crearFactura(this.facturaCrear).subscribe(
       ()=>window.alert('Registro Creado'));
+  }
 
+  onSubmit() {
+    this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
+    this.crearFactura();
   }
 
   public saveCode(e): void {
 
     // eslint-disable-next-line @typescript-eslint/prefer-for-of, no-var
     for(var i = 0; i< this.plantaLista.length; i++){
-      if(this.plantaLista[i].nombre === e.target.value){
+      if(this.plantaLista[i].nombre == e.target.value){
         this.plantasVendidas =(this.plantaLista[i]);
         this.plantasVendidasArray.push(this.plantasVendidas);
         break;
       }
     }
-    console.log('La Planta vendida es: ' +JSON.stringify(this.plantasVendidas));
+
   }
 
-  private construirFormularioFactura() {
-    this.facturaForm = new FormGroup({
-      cliente: new FormControl('', [Validators.required]),
-      plantas: new FormControl('', [Validators.required]),
-      fechaIngreso:  new FormControl('', [Validators.required])
-    });
-  }
+
 }

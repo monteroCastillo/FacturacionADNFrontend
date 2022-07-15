@@ -38,7 +38,7 @@ describe('ActualizarProveedorComponent', () => {
   });
 
   it('Deberia actualizar el componente proveedor', () => {
-    //expect(component.proveedorForm.valid).toBeTruthy();
+
     expect(component).toBeTruthy();
   });
 });

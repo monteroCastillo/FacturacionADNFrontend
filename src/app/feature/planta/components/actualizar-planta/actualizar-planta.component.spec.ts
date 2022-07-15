@@ -39,4 +39,6 @@ describe('ActualizarPlantaComponent', () => {
   it('Deberia actualizar planta', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

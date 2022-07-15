@@ -1,4 +1,4 @@
-/* import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,11 +29,11 @@ describe('VentaComponent', () => {
   });
 
   beforeEach(() => {
-     fixture = TestBed.createComponent(VentaComponent);
+    fixture = TestBed.createComponent(VentaComponent);
     component = fixture.componentInstance;
     ventaService = TestBed.inject(VentaService);
     spyOn(ventaService,'obtenerVenta').and.returnValue(
-      //of(new Number)
+      of()
     );
     fixture.detectChanges();
   });
@@ -42,4 +42,4 @@ describe('VentaComponent', () => {
     expect(component).toBeTruthy();
   });
 });
- */
+

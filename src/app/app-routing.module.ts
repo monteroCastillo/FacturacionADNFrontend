@@ -23,11 +23,6 @@ const routes: Routes = [
       import('./feature/proveedor/proveedor.module').then((m) =>m.ProveedorModule),
   },
 
-
-  /* { path: 'listar-proveedor', component: ListaProveedoresComponent },
-  { path: 'crear-proveedor', component: CrearProveedorComponent },
-  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent },
-  { path: 'detalles-proveedor/:id', component: DetallesProveedorComponent }, */
   { path: 'venta/:fecha', component: VentaComponent },
   { path: 'crear-factura', component: CrearFacturaComponent },
   { path: 'listar-factura', component: ListarFacturaComponent }
