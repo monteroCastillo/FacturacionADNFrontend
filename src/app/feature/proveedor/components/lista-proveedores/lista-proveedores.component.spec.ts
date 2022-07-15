@@ -55,7 +55,7 @@ describe('ListaProveedoresComponent', () => {
 
   it('Deberia eliminar registro',() => {
     spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
-    component.eliminarProveedor(1);
+    component.eliminarProveedor(22);
     expect(Swal.isVisible()).toBeTruthy();
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
   });
