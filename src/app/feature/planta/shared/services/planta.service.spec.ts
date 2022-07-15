@@ -21,12 +21,12 @@ describe('PlantaService', () => {
     service = TestBed.inject(PlantaService);
   });
 
-  /* it('should be created', () => {
+  it('should be created', () => {
     const plantaService: PlantaService = TestBed.inject(PlantaService);
     expect(plantaService).toBeTruthy();
-  }); */
+  });
 
-  /* it('deberia listar plantas', () => {
+  it('deberia listar plantas', () => {
     const dummyPlantas = {
       data: [
         {
@@ -39,7 +39,7 @@ describe('PlantaService', () => {
           categoria: 'PLANTASDEFLOR',
         },
         {
-          idPlanta: 12,
+          idPlanta: 2,
           nombre: 'Margarita',
           descripcion: 'flor amarilla',
           fechaIngreso: new Date('2022-6-08'),
@@ -55,8 +55,42 @@ describe('PlantaService', () => {
     });
     const req = httpMock.expectOne('http://localhost:8083/plantas/index');
     expect(req.request.method).toBe('GET');
-    req.flush(dummyPlantas);
-  }); */
+    req.flush(dummyPlantas.data);
+  });
+
+
+
+  it('deberia encontrar una planta por id', () => {
+    const dummyPlantas = 1;
+
+    service.obtenerPlantaPorId(dummyPlantas).subscribe((respuesta) => {
+      expect(respuesta).toEqual(null);
+    });
+    const baseURL = 'http://localhost:8083/plantas/buscar';
+    const req = httpMock.expectOne(`${baseURL}/1`);
+    expect(req.request.method).toBe('GET');
+
+  });
+
+
+  it('deberia crear una planta', () => {
+    const dummyPlanta = {
+      idPlanta: 1,
+      nombre: 'Orquidea Cattleya triannae',
+      descripcion: 'flor nacional',
+      fechaIngreso: new Date('2022-6-14'),
+      cantidad: 14,
+      valor: 80000,
+      categoria: 'PLANTASDEFLOR',
+    };
+    service.crearPlanta(dummyPlanta).subscribe((respuesta) => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne('http://localhost:8083/apiPlanta/crear');
+    expect(req.request.method).toBe('POST');
+    req.event(new HttpResponse<boolean>({ body: true }));
+  });
+
 
   it('deberia actualizar una planta', () => {
     const dummyPlantas = {
@@ -77,4 +111,33 @@ describe('PlantaService', () => {
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
+
+
+
+  it('deberia eliminar un planta', () => {
+    const dummyPlantas = 1;
+
+    service.eliminarPlanta(dummyPlantas).subscribe((respuesta) => {
+      expect(respuesta).toEqual(null);
+    });
+    const baseURL = 'http://localhost:8083/apiPlanta/borrar';
+    const req = httpMock.expectOne(`${baseURL}/1`);
+    expect(req.request.method).toBe('DELETE');
+
+  });
+
+  it('deberia crear una planta por proveedor', () => {
+    const dummyPlantaProveedor = {
+      idProveedor:22,
+      idPlanta:12
+    };
+    service.crearPlantaPorProveedor(dummyPlantaProveedor).subscribe((respuesta) => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne('http://localhost:8083/apiPlantaPorProveedor/crear');
+    expect(req.request.method).toBe('POST');
+    req.event(new HttpResponse<boolean>({ body: true }));
+  });
 });
+
+

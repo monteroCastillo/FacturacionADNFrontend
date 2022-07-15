@@ -24,7 +24,7 @@ export class ActualizarProveedorComponent implements OnInit {
   }
 
   irAlaListaDeProveedores() {
-    this.router.navigate(['/proveedores']);
+    this.router.navigate(['/proveedor/listar-proveedores']);
     //swal('Proveedor actualizada',`La  proveedor ${this.proveedor.nombre} ha sido actualizada con exito`,`success`);
   }
 

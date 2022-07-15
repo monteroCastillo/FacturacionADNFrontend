@@ -22,10 +22,6 @@ export class ProveedorService {
     return this.httpClient.doGet<Proveedor[]>(`${this.baseURL}`);
   }
 
-  /* obtenerListaDeProveedores(): Observable<Proveedor[]> {
-    return this.httpClient.get<Proveedor[]>(`${this.baseURL}`);
-  } */
-
   crearProveedor(proveedor: Proveedor){
     return this.httpClient.doPost('http://localhost:8083/apiProveedor/guardar', proveedor);
   }

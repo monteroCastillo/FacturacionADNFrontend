@@ -46,18 +46,10 @@ export class ActualizarPlantaComponent implements OnInit {
 
   public saveCode(e): void {
 
-    console.log('El valor del evento es: '+e.target.value);
-
-    console.log('El valor de planta por proveedor recien entra al metodo es:' + JSON.stringify(this.plantaPorProveedor));
-
     this.plantaPorProveedor={
       idProveedor:  e.target.value,
       idPlanta: this.id
     };
-    console.log('El valor del id de la planta es: ' + this.id);
-
-    console.log('El id de la planta'+this.plantaPorProveedor.idPlanta);
-    console.log('proveedor'+ this.plantaPorProveedor.idProveedor);
 
   }
 
@@ -71,7 +63,7 @@ export class ActualizarPlantaComponent implements OnInit {
       () => window.alert('Registro Actualizado')
 
     );
-    if(JSON.stringify(this.plantaPorProveedor) != '{}'){
+    if(JSON.stringify(this.plantaPorProveedor) !== '{}'){
       this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor).subscribe(
         () => window.alert('Proveedor Agregado a la planta')
 

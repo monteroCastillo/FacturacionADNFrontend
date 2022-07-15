@@ -9,12 +9,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { FormsModule } from '@angular/forms';
-import { ProveedorComponent } from './feature/proveedor/components/proveedor/proveedor.component';
-import { CrearProveedorComponent } from './feature/proveedor/components/crear-proveedor/crear-proveedor.component';
-import { ListaProveedoresComponent } from './feature/proveedor/components/lista-proveedores/lista-proveedores.component';
-import { DetallesProveedorComponent } from './feature/proveedor/components/detalles-proveedor/detalles-proveedor.component';
-import { ActualizarProveedorComponent } from './feature/proveedor/components/actualizar-proveedor/actualizar-proveedor.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VentaComponent } from './feature/venta/components/venta/venta.component';
 import { ListarFacturaComponent } from './feature/factura/components/listar-factura/listar-factura.component';
 import { CrearFacturaComponent } from './feature/factura/components/crear-factura/crear-factura.component';
@@ -24,11 +19,6 @@ import { CrearFacturaComponent } from './feature/factura/components/crear-factur
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    ProveedorComponent,
-    ListaProveedoresComponent,
-    CrearProveedorComponent,
-    DetallesProveedorComponent,
-    ActualizarProveedorComponent,
     VentaComponent,
     ListarFacturaComponent,
     CrearFacturaComponent
@@ -39,7 +29,8 @@ import { CrearFacturaComponent } from './feature/factura/components/crear-factur
     ProductoModule,
     CoreModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

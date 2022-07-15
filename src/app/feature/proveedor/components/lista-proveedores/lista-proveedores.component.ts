@@ -23,11 +23,11 @@ export class ListaProveedoresComponent implements OnInit {
   }
 
   actualizarProveedor(id: number) {
-    this.router.navigate(['actualizar-proveedor', id]);
+    this.router.navigate(['proveedor/actualizar-proveedor', id]);
   }
 
   verDetallesDelProveedor(id: number) {
-    this.router.navigate(['detalles-proveedor', id]);
+    this.router.navigate(['proveedor/detalles-proveedor', id]);
   }
 
   eliminarProveedor(id: number) {
@@ -39,6 +39,6 @@ export class ListaProveedoresComponent implements OnInit {
   }
 
   crearProveedorForm(){
-    this.router.navigate(['crear-proveedor']);
+    this.router.navigate(['proveedor/crear-proveedor']);
   }
 }

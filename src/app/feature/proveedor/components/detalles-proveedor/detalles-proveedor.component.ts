@@ -24,7 +24,7 @@ export class DetallesProveedorComponent implements OnInit {
   }
 
   irAtras() {
-    this.router.navigate(['listar-proveedor']);
+    this.router.navigate(['proveedor/listar-proveedor']);
 
   }
 

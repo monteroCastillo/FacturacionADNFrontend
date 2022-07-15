@@ -2,7 +2,6 @@ import { HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
-//import { environment } from 'src/environments/environment';
 
 import { ProveedorService } from './proveedor.service';
 
@@ -69,6 +68,18 @@ describe('ProveedorService', () => {
     req.event(new HttpResponse<boolean>({body:true}));
   });
 
+  it('Deberia encontrar un proveedor por id', () => {
+    const dummyProveedor = 1;
+
+    service.obtenerProveedorPorId(dummyProveedor).subscribe((respuesta) => {
+      expect(respuesta).toEqual(null);
+    });
+    const baseURL = 'http://localhost:8083/proveedores/buscar';
+    const req = httpMock.expectOne(`${baseURL}/1`);
+    expect(req.request.method).toBe('GET');
+
+  });
+
   it('Deberia actualizar un proveedor', () =>{
     const dummyProveedor = {
       id: 22,
@@ -83,5 +94,17 @@ describe('ProveedorService', () => {
     const req = httpMock.expectOne('http://localhost:8083/apiProveedor/actualizar');
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({body:true}));
+  });
+
+  it('deberia eliminar un proveedor', () => {
+    const dummyPlantas = 1;
+
+    service.eliminarProveedor(dummyPlantas).subscribe((respuesta) => {
+      expect(respuesta).toEqual(null);
+    });
+    const baseURL = 'http://localhost:8083/apiProveedor/eliminar';
+    const req = httpMock.expectOne(`${baseURL}/1`);
+    expect(req.request.method).toBe('DELETE');
+
   });
 });

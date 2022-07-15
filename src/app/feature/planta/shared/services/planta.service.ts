@@ -44,7 +44,6 @@ export class PlantaService {
   }
 
   crearPlantaPorProveedor(plantaPorProveedor: PlantaPorProveedor) {
-
     return this.httpClient.doPost(`${this.baseURL6}`, plantaPorProveedor);
   }
 
