@@ -8,20 +8,20 @@ import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 import { ListaProveedoresComponent } from './lista-proveedores.component';
 
-describe('ListaProveedoresComponent', () => {
+fdescribe('ListaProveedoresComponent', () => {
   let component: ListaProveedoresComponent;
   let fixture: ComponentFixture<ListaProveedoresComponent>;
   let proveedorService: ProveedorService;
   const listaProveedores: Proveedor[] = [
     {
-      id: 22,
+      id: 1,
       nombre: 'plantas y plantas',
       direccion: 'Av vasquez Cobo',
       telefono: '5656565',
       paginaWeb: 'plantasyplantas.com.co',
     },
     {
-      id: 23,
+      id: 2,
       nombre: 'Vivero Marinela',
       direccion: 'Calle 23 # 25-46',
       telefono: '2481476',

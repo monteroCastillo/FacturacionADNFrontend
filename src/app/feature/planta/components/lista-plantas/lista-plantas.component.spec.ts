@@ -9,7 +9,7 @@ import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 import { ListaPlantasComponent } from './lista-plantas.component';
 
-describe('ListaPlantasComponent', () => {
+fdescribe('ListaPlantasComponent', () => {
   let component: ListaPlantasComponent;
   let fixture: ComponentFixture<ListaPlantasComponent>;
   let plantaService: PlantaService;

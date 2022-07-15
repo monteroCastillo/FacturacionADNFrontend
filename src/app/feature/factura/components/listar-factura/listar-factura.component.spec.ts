@@ -10,7 +10,7 @@ import { FacturaService } from '../../shared/service/factura.service';
 
 import { ListarFacturaComponent } from './listar-factura.component';
 
-describe('ListarFacturaComponent', () => {
+fdescribe('ListarFacturaComponent', () => {
   let component: ListarFacturaComponent;
   let fixture: ComponentFixture<ListarFacturaComponent>;
 

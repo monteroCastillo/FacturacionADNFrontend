@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { VentaService } from './venta.service';
 
-describe('VentaService', () => {
+fdescribe('VentaService', () => {
   //let httpMock: HttpTestingController;
   let service: VentaService;
 

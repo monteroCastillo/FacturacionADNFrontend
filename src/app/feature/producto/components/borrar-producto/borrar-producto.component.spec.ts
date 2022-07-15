@@ -6,7 +6,7 @@ import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('BorrarProductoComponent', () => {
+fdescribe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
   let fixture: ComponentFixture<BorrarProductoComponent>;
 

@@ -5,7 +5,7 @@ import { HttpService } from '@core/services/http.service';
 import { FacturaCrear } from '../model/factura-crear';
 import { FacturaService } from './factura.service';
 
-describe('FacturaService', () => {
+fdescribe('FacturaService', () => {
   let httpMock: HttpTestingController;
   let service: FacturaService;
 

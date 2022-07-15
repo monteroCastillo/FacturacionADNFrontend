@@ -35,12 +35,14 @@ export class ActualizarPlantaComponent implements OnInit {
     this.listaProveedores = this.proveedorService.consultar();
     this.listaPlantas = this.plantaService.obtenerListaDePlantas();
     this.id = this.route.snapshot.params.id;
-    this.plantaService.obtenerPlantaPorId(this.id).subscribe({
-      next: (dato) => {
-        this.planta = dato;
-      },
-      error: (error) => console.log(error),
-    });
+    if(this.id !== undefined){
+      this.plantaService.obtenerPlantaPorId(this.id).subscribe({
+        next: (dato) => {
+          this.planta = dato;
+        },
+        error: (error) => console.log(error),
+      });
+    }
 
   }
 

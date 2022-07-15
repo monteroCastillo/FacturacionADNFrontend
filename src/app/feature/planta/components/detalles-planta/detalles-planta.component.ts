@@ -17,9 +17,11 @@ export class DetallesPlantaComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
     this.planta = new Planta();
-    this.plantaServicio.obtenerPlantaPorId(this.id).subscribe(dato => {
-      this.planta = dato;
-    });
+    if(this.id !== undefined){
+      this.plantaServicio.obtenerPlantaPorId(this.id).subscribe(dato => {
+        this.planta = dato;
+      });
+    }
   }
 
   irAtras() {

@@ -8,7 +8,7 @@ import { HttpService } from '@core/services/http.service';
 
 import { PlantaService } from './planta.service';
 
-describe('PlantaService', () => {
+fdescribe('PlantaService', () => {
   let httpMock: HttpTestingController;
   let service: PlantaService;
 

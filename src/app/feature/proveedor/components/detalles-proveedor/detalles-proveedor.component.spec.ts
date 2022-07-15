@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 import { DetallesProveedorComponent } from './detalles-proveedor.component';
 
-describe('DetallesProveedorComponent', () => {
+fdescribe('DetallesProveedorComponent', () => {
   let component: DetallesProveedorComponent;
   let fixture: ComponentFixture<DetallesProveedorComponent>;
   let proveedorService: ProveedorService;
