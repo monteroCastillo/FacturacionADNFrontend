@@ -7,7 +7,7 @@
     <h5 class="card-title">Consulta Ventas Por Dia</h5>
     <p class="card-text">Ingrese la fecha en la cual quiere consultar las ventas</p>
     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-    <input type="date"   #fechaInput="ngModel" required [(ngModel)]="venta.ventaDia" >
+    <input type="date"   #fechaInput="ngModel" required [(ngModel)]="fechaInput" >
     <br><br>
     <button [disabled]="fechaInput.invalid" (click)="calcularSuma(fechaInput.value)" class="mb-1 btn btn-primary" >Consultar</button>
     <br><br>
