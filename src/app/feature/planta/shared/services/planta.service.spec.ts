@@ -98,20 +98,6 @@ describe('PlantaService', () => {
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 
-
-
-  it('deberia eliminar un planta', () => {
-    const dummyPlantas = 1;
-
-    service.eliminarPlanta(dummyPlantas).subscribe((respuesta) => {
-      expect(respuesta).toEqual(null);
-    });
-    const baseURL = 'http://localhost:8083/apiPlanta/borrar';
-    const req = httpMock.expectOne(`${baseURL}/1`);
-    expect(req.request.method).toBe('DELETE');
-
-  });
-
   it('deberia crear una planta por proveedor', () => {
     const dummyPlantaProveedor = {
       idProveedor:22,

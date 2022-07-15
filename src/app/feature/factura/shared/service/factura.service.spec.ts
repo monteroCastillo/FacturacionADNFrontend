@@ -46,13 +46,13 @@ describe('FacturaService', () => {
   });
 
   it('Deberia encontrar una factura por id', () => {
-    const dummy = 1;
+    const dummy = 12;
 
     service.obtenerFacturaPorId(dummy).subscribe((respuesta) => {
       expect(respuesta).toEqual(null);
     });
     const baseURL = 'http://localhost:8083/factura/buscar';
-    const req = httpMock.expectOne(`${baseURL}/1`);
+    const req = httpMock.expectOne(`${baseURL}/12`);
     expect(req.request.method).toBe('GET');
 
   });
