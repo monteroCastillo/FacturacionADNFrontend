@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Venta } from '../../shared/models/venta';
 import { VentaService } from '../../shared/services/venta.service';
@@ -9,24 +8,18 @@ import { VentaService } from '../../shared/services/venta.service';
   templateUrl: './venta.component.html',
   styleUrls: ['./venta.component.css']
 })
-export class VentaComponent implements OnInit {
+export class VentaComponent  {
 
   fecha: string;
   valorSuma: number;
   venta: Venta = new Venta();
-  constructor(private ventaServicio: VentaService, private route: ActivatedRoute) { }
+  constructor(private ventaServicio: VentaService) { }
 
-  ngOnInit(): void {
-    this.fecha = this.route.snapshot.params.fecha;
-    this.ventaServicio.obtenerVenta(this.fecha).subscribe(dato => {
-      this.valorSuma = dato;
-    }, error => console.log(error));
-  }
+  calcularSuma() {
 
-  calcularSuma(fecha: string) {
-    this.ventaServicio.obtenerVenta(fecha).subscribe({
+    this.ventaServicio.obtenerVenta(this.fecha).subscribe({
       next: (dato) => {
-        console.log('El valor que llega del dato al metodo es: ' + dato);
+
         this.venta.ventaDia = dato;
         if(dato ===null){
           Swal.fire({

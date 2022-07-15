@@ -68,17 +68,7 @@ describe('ProveedorService', () => {
     req.event(new HttpResponse<boolean>({body:true}));
   });
 
-  it('Deberia encontrar un proveedor por id', () => {
-    const dummyProveedor = 1;
 
-    service.obtenerProveedorPorId(dummyProveedor).subscribe((respuesta) => {
-      expect(respuesta).toEqual(null);
-    });
-    const baseURL = 'http://localhost:8083/proveedores/buscar';
-    const req = httpMock.expectOne(`${baseURL}/1`);
-    expect(req.request.method).toBe('GET');
-
-  });
 
   it('Deberia actualizar un proveedor', () =>{
     const dummyProveedor = {

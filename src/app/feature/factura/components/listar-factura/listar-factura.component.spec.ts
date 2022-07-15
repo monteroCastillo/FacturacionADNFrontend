@@ -15,9 +15,6 @@ describe('ListarFacturaComponent', () => {
   let fixture: ComponentFixture<ListarFacturaComponent>;
 
 
-
-
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ListarFacturaComponent ],

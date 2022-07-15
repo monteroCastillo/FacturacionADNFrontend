@@ -59,20 +59,6 @@ describe('PlantaService', () => {
   });
 
 
-
-  it('deberia encontrar una planta por id', () => {
-    const dummyPlantas = 1;
-
-    service.obtenerPlantaPorId(dummyPlantas).subscribe((respuesta) => {
-      expect(respuesta).toEqual(null);
-    });
-    const baseURL = 'http://localhost:8083/plantas/buscar';
-    const req = httpMock.expectOne(`${baseURL}/1`);
-    expect(req.request.method).toBe('GET');
-
-  });
-
-
   it('deberia crear una planta', () => {
     const dummyPlanta = {
       idPlanta: 1,
