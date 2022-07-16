@@ -7,7 +7,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { PlantaService } from './planta.service';
 
- describe('PlantaService', () => {
+describe('PlantaService', () => {
   let httpMock: HttpTestingController;
   let service: PlantaService;
 
