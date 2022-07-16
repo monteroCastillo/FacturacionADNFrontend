@@ -13,7 +13,7 @@ import { PlantaService } from '../../shared/services/planta.service';
 })
 export class CrearPlantaComponent {
   planta: Planta = new Planta();
-  constructor(private plantaServicio: PlantaService, private router: Router) {}
+  constructor(protected plantaServicio: PlantaService, private router: Router) {}
 
   crearPlanta() {
     this.plantaServicio.crearPlanta(this.planta).subscribe({

@@ -12,7 +12,7 @@ export class DetallesPlantaComponent implements OnInit {
 
   id: number;
   planta: Planta = new Planta();
-  constructor(private route: ActivatedRoute, private plantaServicio: PlantaService, private router: Router) { }
+  constructor(private route: ActivatedRoute, protected plantaServicio: PlantaService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
