@@ -21,7 +21,7 @@ export class CrearFacturaComponent implements OnInit {
   plantasVendidas: Planta = new Planta();
   plantasVendidasArray: Planta[] = [];
 
-  constructor(private facturaServicio: FacturaService, private plantaService: PlantaService) { }
+  constructor(protected facturaServicio: FacturaService, protected plantaService: PlantaService) { }
 
   ngOnInit(): void {
     this.listaPlantas = this.plantaService.obtenerListaDePlantas();

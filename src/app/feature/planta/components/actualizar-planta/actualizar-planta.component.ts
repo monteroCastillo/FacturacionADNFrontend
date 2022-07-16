@@ -24,8 +24,8 @@ export class ActualizarPlantaComponent implements OnInit {
   listaPlantas: Observable<Planta[]>;
   public codeValue: string;
   constructor(
-    private proveedorService: ProveedorService,
-    private plantaService: PlantaService,
+    protected proveedorService: ProveedorService,
+    protected plantaService: PlantaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}

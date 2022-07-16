@@ -16,7 +16,7 @@ export class ListarFacturaComponent  {
 
 
   cliente: Cliente = new Cliente();
-  constructor(private facturaService: FacturaService) { }
+  constructor(protected facturaService: FacturaService) { }
 
 
   idBuscarFactura(){

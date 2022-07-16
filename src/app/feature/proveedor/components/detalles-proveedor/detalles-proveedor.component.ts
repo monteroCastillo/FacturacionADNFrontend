@@ -13,14 +13,16 @@ export class DetallesProveedorComponent implements OnInit {
   id: number;
   proveedor: Proveedor;
 
-  constructor(private route: ActivatedRoute, private proveedorServicio: ProveedorService, private router: Router) { }
+  constructor(private route: ActivatedRoute, protected proveedorServicio: ProveedorService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
     this.proveedor = new Proveedor();
-    this.proveedorServicio.obtenerProveedorPorId(this.id).subscribe(dato => {
-      this.proveedor = dato;
-    });
+    if(this.id !== undefined){
+      this.proveedorServicio.obtenerProveedorPorId(this.id).subscribe(dato => {
+        this.proveedor = dato;
+      });
+    }
   }
 
   irAtras() {

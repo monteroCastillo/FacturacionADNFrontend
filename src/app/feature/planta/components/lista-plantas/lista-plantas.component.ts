@@ -16,7 +16,7 @@ export class ListaPlantasComponent implements OnInit {
   planta: Planta[];
   public listaPlantas: Observable<Planta[]>;
 
-  constructor(private plantaServicio: PlantaService, private router: Router) { }
+  constructor(protected plantaServicio: PlantaService, private router: Router) { }
 
   ngOnInit(): void {
     this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();

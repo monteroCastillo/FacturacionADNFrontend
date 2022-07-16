@@ -14,13 +14,15 @@ export class ActualizarProveedorComponent implements OnInit {
   id: number;
   proveedor: Proveedor = new Proveedor();
   proveedorForm: FormGroup;
-  constructor(private proveedorService: ProveedorService, private router: Router, private route: ActivatedRoute) { }
+  constructor(protected proveedorService: ProveedorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    this.proveedorService.obtenerProveedorPorId(this.id).subscribe(dato => {
-      this.proveedor = dato;
-    });
+    if(this.id !== undefined){
+      this.proveedorService.obtenerProveedorPorId(this.id).subscribe(dato => {
+        this.proveedor = dato;
+      });
+    }
   }
 
   irAlaListaDeProveedores() {
