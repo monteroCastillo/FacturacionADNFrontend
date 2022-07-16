@@ -5,7 +5,7 @@ import { HttpService } from '@core/services/http.service';
 
 import { ProveedorService } from './proveedor.service';
 
-fdescribe('ProveedorService', () => {
+describe('ProveedorService', () => {
   let httpMock: HttpTestingController;
   let service: ProveedorService;
 

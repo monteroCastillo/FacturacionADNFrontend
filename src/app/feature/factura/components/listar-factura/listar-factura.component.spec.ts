@@ -4,13 +4,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-
-
 import { FacturaService } from '../../shared/service/factura.service';
-
 import { ListarFacturaComponent } from './listar-factura.component';
 
-fdescribe('ListarFacturaComponent', () => {
+describe('ListarFacturaComponent', () => {
   let component: ListarFacturaComponent;
   let fixture: ComponentFixture<ListarFacturaComponent>;
 

@@ -9,7 +9,7 @@ import { FacturaService } from '../../shared/service/factura.service';
 
 import { CrearFacturaComponent } from './crear-factura.component';
 
-fdescribe('CrearFacturaComponent', () => {
+describe('CrearFacturaComponent', () => {
   let component: CrearFacturaComponent;
   let fixture: ComponentFixture<CrearFacturaComponent>;
   let facturaService: FacturaService;

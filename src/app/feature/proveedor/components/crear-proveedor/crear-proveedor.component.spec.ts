@@ -9,7 +9,7 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
 
 import { CrearProveedorComponent } from './crear-proveedor.component';
 
-fdescribe('CrearProveedorComponent', () => {
+describe('CrearProveedorComponent', () => {
   let component: CrearProveedorComponent;
   let fixture: ComponentFixture<CrearProveedorComponent>;
   let proveedorService: ProveedorService;

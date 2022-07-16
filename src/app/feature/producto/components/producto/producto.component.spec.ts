@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
-fdescribe('ProductoComponent', () => {
+describe('ProductoComponent', () => {
   let component: ProductoComponent;
   let fixture: ComponentFixture<ProductoComponent>;
 

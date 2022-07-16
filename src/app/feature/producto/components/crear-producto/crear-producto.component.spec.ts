@@ -9,7 +9,7 @@ import { ProductoService } from '../../shared/service/producto.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-fdescribe('CrearProductoComponent', () => {
+describe('CrearProductoComponent', () => {
   let component: CrearProductoComponent;
   let fixture: ComponentFixture<CrearProductoComponent>;
   let productoService: ProductoService;

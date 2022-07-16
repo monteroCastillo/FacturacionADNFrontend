@@ -3,8 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { VentaService } from './venta.service';
 
-fdescribe('VentaService', () => {
-  //let httpMock: HttpTestingController;
+describe('VentaService', () => {
+
   let service: VentaService;
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ fdescribe('VentaService', () => {
       imports: [HttpClientTestingModule],
       providers: [VentaService, HttpService]
     });
-    // httpMock = injector.inject(HttpTestingController);
+
     service = TestBed.inject(VentaService);
   });
 

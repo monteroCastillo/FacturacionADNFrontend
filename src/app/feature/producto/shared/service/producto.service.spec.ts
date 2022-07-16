@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
 import { HttpResponse } from '@angular/common/http';
 
-fdescribe('ProductoService', () => {
+describe('ProductoService', () => {
   let httpMock: HttpTestingController;
   let service: ProductoService;
   const apiEndpointProductoConsulta = `${environment.endpoint}/users`;
