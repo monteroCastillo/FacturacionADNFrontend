@@ -47,7 +47,7 @@ describe('ListaProveedoresComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Deberian crearse dos proveedores', () => {
+ /*  it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
     component.listaProveedores.subscribe(resultado => {
       expect(2).toBe(resultado.length);
@@ -57,7 +57,7 @@ describe('ListaProveedoresComponent', () => {
   it('Deberia consultar la lista de activos a depreciar', () => {
     component.ngOnInit();
     expect(proveedorService.consultar).toHaveBeenCalled();
-  });
+  }); */
 
 
 
