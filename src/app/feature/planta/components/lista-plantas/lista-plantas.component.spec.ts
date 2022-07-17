@@ -4,7 +4,6 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
-import Swal from 'sweetalert2';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 import { ListaPlantasComponent } from './lista-plantas.component';
