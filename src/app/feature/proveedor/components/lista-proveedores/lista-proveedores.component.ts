@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -11,6 +11,7 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
   styleUrls: ['./lista-proveedores.component.css'],
 })
 export class ListaProveedoresComponent implements OnInit {
+
   proveedor: Proveedor[];
   public listaProveedores: Observable<Proveedor[]>;
   constructor(

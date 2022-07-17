@@ -25,7 +25,7 @@ describe('PlantaService', () => {
     expect(plantaService).toBeTruthy();
   });
 
-  /*it('deberia listar plantas', () => {
+/*   it('deberia listar plantas', () => {
     const dummyPlantas = {
       data: [
         {
@@ -55,8 +55,8 @@ describe('PlantaService', () => {
     const req = httpMock.expectOne('http://localhost:8083/plantas/index');
     expect(req.request.method).toBe('GET');
     req.flush(dummyPlantas.data);
-  }); */
-
+  });
+ */
 
   it('deberia crear una planta', () => {
     const dummyPlanta = {

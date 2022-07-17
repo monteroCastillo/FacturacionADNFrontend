@@ -41,15 +41,22 @@ describe('ListaProveedoresComponent', () => {
     fixture = TestBed.createComponent(ListaProveedoresComponent);
     component = fixture.componentInstance;
     proveedorService = TestBed.inject(ProveedorService);
-    spyOn(proveedorService, 'consultar').and.returnValue(of(listaProveedores));
+    spyOn(proveedorService, 'consultar').and.returnValue(
+      of(listaProveedores)
+    );
     fixture.detectChanges();
   });
 
   it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
-    component.listaProveedores.subscribe((resultado) => {
+    component.listaProveedores.subscribe(resultado => {
       expect(2).toBe(resultado.length);
     });
+  });
+
+  it('Deberia consultar la lista de activos a depreciar', () => {
+    component.ngOnInit();
+    expect(proveedorService.consultar).toHaveBeenCalled();
   });
 
 
