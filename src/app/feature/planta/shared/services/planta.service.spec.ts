@@ -25,7 +25,7 @@ describe('PlantaService', () => {
     expect(plantaService).toBeTruthy();
   });
 
-/*   it('deberia listar plantas', () => {
+  it('deberia listar plantas', () => {
     const dummyPlantas = {
       data: [
         {
@@ -56,7 +56,7 @@ describe('PlantaService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(dummyPlantas.data);
   });
- */
+
 
   it('deberia crear una planta', () => {
     const dummyPlanta = {
