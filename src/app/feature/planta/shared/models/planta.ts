@@ -1,4 +1,3 @@
-
 export class Planta {
 
   idPlanta: number;
