@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+/*import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -46,7 +46,7 @@ describe('ListaPlantasComponent', () => {
       .compileComponents();
   }));
 
-  beforeEach(() => {
+   beforeEach(() => {
     fixture = TestBed.createComponent(ListaPlantasComponent);
     component = fixture.componentInstance;
     plantaService = TestBed.inject(PlantaService);
@@ -63,12 +63,12 @@ describe('ListaPlantasComponent', () => {
     });
   });
 
-  /*  it('Deberia eliminar registro',() => {
+  it('Deberia eliminar registro',() => {
     spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
     component.eliminarPlanta(12);
     expect(Swal.isVisible()).toBeTruthy();
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
-  }); */
+  });
 
-});
+});*/
 
