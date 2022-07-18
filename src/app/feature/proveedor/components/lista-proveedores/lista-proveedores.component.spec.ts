@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+//import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
@@ -32,7 +33,7 @@ describe('ListaProveedoresComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ListaProveedoresComponent],
-      imports: [CommonModule, HttpClientModule, RouterTestingModule],
+      imports: [CommonModule, HttpClientTestingModule, RouterTestingModule],
       providers: [ProveedorService, HttpService],
     }).compileComponents();
   }));
@@ -49,6 +50,10 @@ describe('ListaProveedoresComponent', () => {
 
   it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
+  });
+
+
+  it('Deberian crearse dos proveedores', () => {
     component.listaProveedores.subscribe(resultado => {
       expect(2).toBe(resultado.length);
     });

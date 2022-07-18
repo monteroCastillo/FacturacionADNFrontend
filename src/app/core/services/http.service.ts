@@ -17,7 +17,7 @@ export class HttpService {
     };
   }
 
-  public doGet<T>(serviceUrl: string, opts?: Options): Observable<T> {
+  public  doGet<T>(serviceUrl: string, opts?: Options): Observable<T> {
     const ropts = this.createOptions(opts);
     return this.http.get<T>(serviceUrl, ropts);
   }

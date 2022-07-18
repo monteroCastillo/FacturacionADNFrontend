@@ -20,7 +20,7 @@ export class ListaProveedoresComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listaProveedores = this.proveedorServicio.consultar();
+    this.listaProveedores =  this.proveedorServicio.consultar();
   }
 
   actualizarProveedor(id: number) {
