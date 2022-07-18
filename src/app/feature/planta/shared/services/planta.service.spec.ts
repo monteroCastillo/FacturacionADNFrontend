@@ -1,4 +1,4 @@
-/* import { HttpResponse } from '@angular/common/http';
+ import { HttpResponse } from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
@@ -112,4 +112,4 @@ describe('PlantaService', () => {
 });
 
 
- */
+
