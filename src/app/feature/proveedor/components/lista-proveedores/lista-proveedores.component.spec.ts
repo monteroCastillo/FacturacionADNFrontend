@@ -59,10 +59,10 @@ describe('ListaProveedoresComponent', () => {
     });
   });
 
-  /*  it('Deberia consultar la lista de proveedores', () => {
+  it('Deberia consultar la lista de proveedores', () => {
     component.ngOnInit();
     expect(proveedorService.consultar).toHaveBeenCalled();
-  }); */
+  });
 
 
 
