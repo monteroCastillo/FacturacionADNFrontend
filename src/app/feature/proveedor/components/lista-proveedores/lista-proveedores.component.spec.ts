@@ -54,10 +54,10 @@ describe('ListaProveedoresComponent', () => {
     });
   });
 
-  it('Deberia consultar la lista de activos a depreciar', () => {
+  /*  it('Deberia consultar la lista de proveedores', () => {
     component.ngOnInit();
     expect(proveedorService.consultar).toHaveBeenCalled();
-  });
+  }); */
 
 
 
