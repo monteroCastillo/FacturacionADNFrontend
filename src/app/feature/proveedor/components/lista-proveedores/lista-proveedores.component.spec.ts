@@ -1,4 +1,4 @@
-/*import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -47,7 +47,7 @@ describe('ListaProveedoresComponent', () => {
     fixture.detectChanges();
   });
 
-   it('Deberian crearse dos proveedores', () => {
+  it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
     component.listaProveedores.subscribe(resultado => {
       expect(2).toBe(resultado.length);
@@ -61,4 +61,4 @@ describe('ListaProveedoresComponent', () => {
 
 
 
-});*/
+});
