@@ -57,7 +57,7 @@ describe('ListaPlantasComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberia consultar la lista de plantas', () => {
     expect(component).toBeTruthy();
     component.listaPlantas.subscribe(resultado => {
       expect(2).toBe(resultado.length);
@@ -66,7 +66,7 @@ describe('ListaPlantasComponent', () => {
 
   it('Deberia eliminar registro',() => {
     spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
-    component.eliminarPlanta(12);
+    component.eliminarPlanta(1);
     expect(Swal.isVisible()).toBeTruthy();
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
   });
