@@ -7,74 +7,71 @@ pipeline {
 
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
-    	buildDiscarder(logRotator(numToKeepStr: '5'))
- 	disableConcurrentBuilds()
+      buildDiscarder(logRotator(numToKeepStr: '3'))
+    disableConcurrentBuilds()
   }
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
   tools {
-    nodejs 'NodeJS16'
+    jdk 'JDK14_Centos' //Verisión preinstalada en la Configuración del Master
   }
+/*  Versiones disponibles
+      JDK8_Mac
+      JDK6_Centos
+      JDK7_Centos
+      JDK8_Centos
+      JDK10_Centos
+      JDK11_Centos
+      JDK13_Centos
+      JDK14_Centos
+*/
 
   //Aquí comienzan los “items” del Pipeline
-  stages{
+  stages {
     stage('Checkout') {
-      steps{
-        echo "------------>Checkout<------------"
-        checkout([
-			$class: 'GitSCM',
-			branches: [[name: '*/main']],
-			doGenerateSubmoduleConfigurations: false,
-			extensions: [],
-			gitTool: 'Default',
-			submoduleCfg: [],
-			userRemoteConfigs: [[
-				credentialsId: 'GitHub_rmontero',
-                url:'https://github.com/monteroCastillo/FacturacionADNFrontend.git'
-			]]
-		])
+      steps {
+        //echo "------------>Checkout<------------"
+        checkout scm
       }
     }
 
-    stage('NPM Install') {
+    stage('Clean') {
       steps {
-        echo "------------>Installing<------------"
+        sh 'npm cache clean --force'
+      }
+    }
+
+    stage('Install') {
+      steps {
+        //echo "------------>Installing<------------"
         sh 'npm install'
       }
     }
 
     stage('Unit Test') {
       steps {
-        echo "------------>Testing<------------"
-        sh 'npm run test'
+        //echo "------------>Testing<------------"
+        sh 'npm run test -- --watch=false --browsers ChromeHeadless'
       }
     }
 
-    /*stage('Test end-to-end') {
-      steps{
-        echo "------------>Testing Protractor<------------"
-        sh 'npm run e2e'
-      }
-    }*/
-
-
     stage('Static Code Analysis') {
-		steps{
-		   sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:ceiba-vivero-front-rodrigo.montero',
-       sonarName:'Ceiba-Vivero-Front[rodrigo.montero]',
-			 sonarPathProperties:'./sonar-project.properties')
-		}
-	}
+      steps {
+        echo '------------>Análisis de código estático<------------'
+        sonarqubeMasQualityGatesP(
+          sonarKey:'co.com.ceiba.adn:ceiba-vivero-front-rodrigo.montero',
+        sonarName:'Ceiba-Vivero-Front[rodrigo.montero]',
+        sonarPathProperties:'./sonar-project.properties')
+      }
+    }
 
-	stage('Build') {
-		steps {
-			echo "------------>Building<------------"
-			sh 'npm run build'
-		}
-	}
-}
-
-
+    stage('Build') {
+      steps {
+        echo '------------>Building<------------'
+        sh 'npm run build'
+      }
+    }
+  }
   post {
     always {
       echo 'This will always run'
@@ -84,8 +81,9 @@ pipeline {
     }
     failure {
       echo 'This will run only if failed'
-      mail (to: 'rodrigo.montero@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
+      mail (to: 'rodrigo.montero@ceiba.com.co', subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
     }
+
     unstable {
       echo 'This will run only if the run was marked as unstable'
     }
