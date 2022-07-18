@@ -46,7 +46,7 @@ export class CrearFacturaComponent implements OnInit {
 
     // eslint-disable-next-line @typescript-eslint/prefer-for-of, no-var
     for(var i = 0; i< this.plantaLista.length; i++){
-      if(this.plantaLista[i].nombre == e.target.value){
+      if(this.plantaLista[i].nombre === e.target.value){
         this.plantasVendidas =(this.plantaLista[i]);
         this.plantasVendidasArray.push(this.plantasVendidas);
         break;

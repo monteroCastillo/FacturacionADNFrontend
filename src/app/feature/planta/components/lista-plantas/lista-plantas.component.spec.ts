@@ -1,9 +1,10 @@
-/*import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 import { ListaPlantasComponent } from './lista-plantas.component';
@@ -46,7 +47,7 @@ describe('ListaPlantasComponent', () => {
       .compileComponents();
   }));
 
-   beforeEach(() => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(ListaPlantasComponent);
     component = fixture.componentInstance;
     plantaService = TestBed.inject(PlantaService);
@@ -70,5 +71,5 @@ describe('ListaPlantasComponent', () => {
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
   });
 
-});*/
+});
 
