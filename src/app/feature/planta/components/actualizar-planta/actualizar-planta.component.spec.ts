@@ -11,7 +11,7 @@ import { PlantaService } from '../../shared/services/planta.service';
 import { ActualizarPlantaComponent } from './actualizar-planta.component';
 
 describe('ActualizarPlantaComponent', () => {
-  let planta = new Planta();
+  const planta = new Planta();
   let component: ActualizarPlantaComponent;
   let fixture: ComponentFixture<ActualizarPlantaComponent>;
   let plantaService: PlantaService;
@@ -51,7 +51,6 @@ describe('ActualizarPlantaComponent', () => {
     planta.valor = 15000;
     planta.fechaIngreso = new Date('2022-07-17');
     planta.categoria = 'CACTUS';
-
 
     component.onSubmit();
     expect(plantaService.actualizarPlanta).toHaveBeenCalled();
