@@ -32,8 +32,8 @@ export class ListaProveedoresComponent implements OnInit {
   }
 
   eliminarProveedor(id: number) {
-    this.proveedorServicio.eliminarProveedor(id).subscribe((dato) => {
-      console.log(dato);
+    this.proveedorServicio.eliminarProveedor(id).subscribe(() => {
+
     });
     Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000});
     this.listaProveedores = this.proveedorServicio.consultar();

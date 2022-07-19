@@ -36,7 +36,7 @@ export class CrearProveedorComponent implements OnInit {
 
   crear() {
     this.crearProveedor();
-    console.log(this.proveedor);
+
   }
 
   private construirFormularioProveedor(){

@@ -36,8 +36,7 @@ export class ListaPlantasComponent implements OnInit {
   }
 
   eliminarPlanta(id: number) {
-    this.plantaServicio.eliminarPlanta(id).subscribe(dato => {
-      console.log(dato);
+    this.plantaServicio.eliminarPlanta(id).subscribe(() => {
       this.obtenerPlanta();
     });
     Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000});

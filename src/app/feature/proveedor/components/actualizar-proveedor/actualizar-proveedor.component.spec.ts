@@ -50,5 +50,7 @@ describe('ActualizarProveedorComponent', () => {
     component.onSubmit();
     expect(proveedorService.actualizarProveedor).toHaveBeenCalled();
   });
+
+
 });
 

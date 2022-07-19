@@ -25,7 +25,6 @@ export class CrearPlantaComponent {
         });
       },
       error: (error: HttpErrorResponse) => {
-        console.log(error);
         Swal.fire({
           title: error.error.mensaje,
           icon: 'error',

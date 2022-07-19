@@ -97,4 +97,28 @@ describe('ProveedorService', () => {
     expect(req.request.method).toBe('DELETE');
 
   });
+
+  it('deberia entregar un proveedor por id', (done) => {
+    const id = 1;
+    const dummyProveedor = {
+      data: [{
+        id: 22,
+        nombre: 'plantas y plantas',
+        direccion: 'Av vasquez Cobo',
+        telefono: '5656565',
+        paginaWeb: 'plantasyplantas.com.co'
+      }]
+    };
+
+    service.obtenerProveedorPorId(id).subscribe(proveedores => {
+      expect(proveedores[0]).toEqual(dummyProveedor[0]);
+      done();
+    });
+
+    const req = httpMock.expectOne(`${'http://localhost:8083/proveedores/buscar'}/1`);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyProveedor);
+  });
+
+
 });

@@ -12,7 +12,6 @@ export class VentaService {
   constructor(private httpClient: HttpClient) { }
 
   obtenerVenta(fecha: string) {
-    console.log('Fecha de busqueda ' + fecha);
     return this.httpClient.get<number>(`${this.baseURL}/${fecha}`);
   }
 }

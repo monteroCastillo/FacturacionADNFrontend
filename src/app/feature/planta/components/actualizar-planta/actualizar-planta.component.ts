@@ -40,7 +40,7 @@ export class ActualizarPlantaComponent implements OnInit {
         next: (dato) => {
           this.planta = dato;
         },
-        error: (error) => console.log(error),
+        error: () => {},
       });
     }
 

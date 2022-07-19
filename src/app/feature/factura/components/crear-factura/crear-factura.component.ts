@@ -42,16 +42,24 @@ export class CrearFacturaComponent implements OnInit {
     this.crearFactura();
   }
 
-  public saveCode(e): void {
+  public saveCode(evento): void {
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of, no-var
-    for(var i = 0; i< this.plantaLista.length; i++){
+
+    this.plantaLista.forEach((valor, index) => {
+      if(valor[index].nombre === evento.target.value){
+        this.plantasVendidas = (valor[index]);
+        this.plantasVendidasArray.push(this.plantasVendidas);
+      }
+    });
+
+
+    /* for(let i = 0; i< this.plantaLista.length; i++){
       if(this.plantaLista[i].nombre === e.target.value){
         this.plantasVendidas =(this.plantaLista[i]);
         this.plantasVendidasArray.push(this.plantasVendidas);
         break;
       }
-    }
+    } */
 
   }
 
