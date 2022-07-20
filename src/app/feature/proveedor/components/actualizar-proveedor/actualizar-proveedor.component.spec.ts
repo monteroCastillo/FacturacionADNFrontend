@@ -15,6 +15,7 @@ describe('ActualizarProveedorComponent', () => {
   let fixture: ComponentFixture<ActualizarProveedorComponent>;
   let proveedorService: ProveedorService;
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ActualizarProveedorComponent],
@@ -49,6 +50,14 @@ describe('ActualizarProveedorComponent', () => {
 
     component.onSubmit();
     expect(proveedorService.actualizarProveedor).toHaveBeenCalled();
+  });
+
+  it('deberia consultar proveedor por id', () => {
+    spyOn(proveedorService, 'obtenerProveedorPorId').withArgs(1).and.returnValue(
+      of()
+    );
+    proveedorService.obtenerProveedorPorId(1);
+    expect(proveedorService.obtenerProveedorPorId).toHaveBeenCalled();
   });
 
 

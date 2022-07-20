@@ -35,13 +35,8 @@ export class CrearPlantaComponent {
     this.router.navigate(['/planta/lista-plantas']);
   }
 
-  irALaListaDePlantas() {
-    this.router.navigate(['/planta']);
-  }
-
   onSubmit(form: NgForm) {
     this.crearPlanta();
-    console.log(this.planta);
     form.resetForm();
   }
 
