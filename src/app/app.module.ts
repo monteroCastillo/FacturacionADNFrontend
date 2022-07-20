@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VentaComponent } from './feature/venta/components/venta/venta.component';
 import { ListarFacturaComponent } from './feature/factura/components/listar-factura/listar-factura.component';
 import { CrearFacturaComponent } from './feature/factura/components/crear-factura/crear-factura.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CrearFacturaComponent } from './feature/factura/components/crear-factur
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
+    HttpClientTestingModule,
     FormsModule,
     ReactiveFormsModule
   ],
