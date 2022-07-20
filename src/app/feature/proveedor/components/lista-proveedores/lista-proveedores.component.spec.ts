@@ -24,7 +24,7 @@ describe('ListaProveedoresComponent', () => {
     {
       id: 2,
       nombre: 'Vivero Marinela',
-      direccion: 'Calle 23 # 25-46',
+      direccion: 'Calle 26 # 25-46',
       telefono: '2481476',
       paginaWeb: 'viveromarinela.com.co',
     },
