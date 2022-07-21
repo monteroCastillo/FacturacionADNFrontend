@@ -5,7 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 import { PlantaService } from '../../shared/services/planta.service';
+import { ListaPlantasComponent } from '../lista-plantas/lista-plantas.component';
 import { CrearPlantaComponent } from './crear-planta.component';
 
 describe('CrearPlantaComponent', () => {
@@ -19,7 +21,9 @@ describe('CrearPlantaComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([{
+          path: 'planta/lista-plantas', component:ListaPlantasComponent}
+        ]),
         ReactiveFormsModule,
         FormsModule,
       ],
@@ -38,4 +42,13 @@ describe('CrearPlantaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Debe lanzar mensaje cuando crea planta ', () => {
+    spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
+    component.crearPlanta();
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('Registro realizado exitosamente!');
+  });
+
+
 });

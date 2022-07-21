@@ -65,6 +65,11 @@ describe('ListaPlantasComponent', () => {
     });
   });
 
+  it('Deberia consultar la lista de plantas al arranque del componente', () => {
+    component.ngOnInit();
+    expect(plantaService.obtenerListaDePlantas).toHaveBeenCalled();
+  });
+
   it('Deberia eliminar registro',() => {
     spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
     component.eliminarPlanta(1);

@@ -7,6 +7,7 @@ import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
+import { ListaPlantasComponent } from '../lista-plantas/lista-plantas.component';
 
 import { ActualizarPlantaComponent } from './actualizar-planta.component';
 
@@ -22,7 +23,9 @@ describe('ActualizarPlantaComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([{
+          path: 'planta/lista-plantas', component:ListaPlantasComponent}
+        ]),
         ReactiveFormsModule,
         FormsModule,
       ],
@@ -54,6 +57,14 @@ describe('ActualizarPlantaComponent', () => {
 
     component.onSubmit();
     expect(plantaService.actualizarPlanta).toHaveBeenCalled();
+  });
+
+  it('deberia consultar proveedor por id', () => {
+    spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
+      of()
+    );
+    plantaService.obtenerPlantaPorId(1);
+    expect(plantaService.obtenerPlantaPorId).toHaveBeenCalled();
   });
 
 

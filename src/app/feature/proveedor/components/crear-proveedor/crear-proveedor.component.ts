@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {  FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Proveedor } from '../../shared/models/proveedor';
@@ -10,16 +10,13 @@ import { ProveedorService } from '../../shared/services/proveedor.service';
   templateUrl: './crear-proveedor.component.html',
   styleUrls: ['./crear-proveedor.component.css']
 })
-export class CrearProveedorComponent implements OnInit {
+export class CrearProveedorComponent{
 
   proveedorForm: FormGroup;
 
   proveedor: Proveedor = new Proveedor();
   constructor(private proveedorServicio: ProveedorService, private router: Router) { }
 
-  ngOnInit() {
-    this.construirFormularioProveedor();
-  }
 
   crearProveedor() {
     this.proveedorServicio.crearProveedor(this.proveedor).subscribe({
@@ -34,18 +31,5 @@ export class CrearProveedorComponent implements OnInit {
     this.router.navigate(['proveedor/proveedores']);
   }
 
-  crear() {
-    this.crearProveedor();
-
-  }
-
-  private construirFormularioProveedor(){
-    this.proveedorForm = new FormGroup({
-      id: new FormControl(''),
-      nombre: new FormControl('',
-        [Validators.required]),
-      descripcion: new FormControl('', [Validators.required])
-    });
-  }
 
 }

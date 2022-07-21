@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+//import Swal from 'sweetalert2';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
 import { CrearProveedorComponent } from './crear-proveedor.component';
@@ -39,7 +40,11 @@ describe('CrearProveedorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('Registrar Proveedor', () => {
-    expect(component).toBeTruthy();
-  });
+
+ /*  it('Debe lanzar mensaje cuando crea proveedor ', () => {
+    spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
+    component.crearProveedor();
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('Registro realizado exitosamente!');
+  }); */
 });

@@ -133,8 +133,6 @@ describe('PlantaService', () => {
     req.flush(dummyPlantas);
   });
 
-
-
   it('deberia crear una planta por proveedor', () => {
     const dummyPlantaProveedor = {
       idProveedor:22,

@@ -15,6 +15,7 @@ describe('CrearFacturaComponent', () => {
   let fixture: ComponentFixture<CrearFacturaComponent>;
   let facturaService: FacturaService;
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CrearFacturaComponent ],
@@ -36,10 +37,22 @@ describe('CrearFacturaComponent', () => {
     facturaService = TestBed.inject(FacturaService);
     spyOn(facturaService, 'crearFactura').and.returnValue(of(true));
     fixture.detectChanges();
-  });
 
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Debe lanzar la alerta al crear la factura', () => {
+
+    spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
+    component.crearFactura();
+    expect(window.alert).toHaveBeenCalled();
+  });
+
+  it('Debe tener una variable llamada plantasVendidasArray con valor [] por defecto', () => {
+    expect(component.plantasVendidasArray).toEqual([]);
+  });
+
 });

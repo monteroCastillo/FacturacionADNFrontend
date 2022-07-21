@@ -7,6 +7,7 @@ import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
+import { ListaProveedoresComponent } from '../lista-proveedores/lista-proveedores.component';
 import { ActualizarProveedorComponent } from './actualizar-proveedor.component';
 
 describe('ActualizarProveedorComponent', () => {
@@ -21,6 +22,9 @@ describe('ActualizarProveedorComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
+        RouterTestingModule.withRoutes([{
+          path: 'proveedor/listar-proveedores', component:ListaProveedoresComponent}
+        ]),
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule,
@@ -39,6 +43,8 @@ describe('ActualizarProveedorComponent', () => {
     fixture.detectChanges();
   });
 
+
+
   it('Deberia actualizar el componente proveedor', () => {
 
     proveedor.id = 23;
@@ -49,6 +55,14 @@ describe('ActualizarProveedorComponent', () => {
 
     component.onSubmit();
     expect(proveedorService.actualizarProveedor).toHaveBeenCalled();
+  });
+
+  it('deberia consultar proveedor por id', () => {
+    spyOn(proveedorService, 'obtenerProveedorPorId').withArgs(1).and.returnValue(
+      of()
+    );
+    proveedorService.obtenerProveedorPorId(1);
+    expect(proveedorService.obtenerProveedorPorId).toHaveBeenCalled();
   });
 
 
