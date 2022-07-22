@@ -5,21 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
-<<<<<<< HEAD
-//import { Planta } from '../../shared/models/planta';
-=======
->>>>>>> d4dd0c7076c5075b91cedfe55997178b58551a42
 import { PlantaService } from '../../shared/services/planta.service';
-import { ListaPlantasComponent } from '../lista-plantas/lista-plantas.component';
 
 import { ActualizarPlantaComponent } from './actualizar-planta.component';
 
 describe('ActualizarPlantaComponent', () => {
-<<<<<<< HEAD
-  //const planta = new Planta();
-=======
 
->>>>>>> d4dd0c7076c5075b91cedfe55997178b58551a42
   let component: ActualizarPlantaComponent;
   let fixture: ComponentFixture<ActualizarPlantaComponent>;
   let plantaService: PlantaService;
@@ -30,9 +21,7 @@ describe('ActualizarPlantaComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule.withRoutes([{
-          path: 'planta/lista-plantas', component:ListaPlantasComponent}
-        ]),
+        RouterTestingModule,
         ReactiveFormsModule,
         FormsModule,
       ],
@@ -58,14 +47,6 @@ describe('ActualizarPlantaComponent', () => {
     component.onSubmit();
     expect(plantaService.actualizarPlanta).toHaveBeenCalled();
   }); */
-
-  it('deberia consultar proveedor por id', () => {
-    spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
-      of()
-    );
-    plantaService.obtenerPlantaPorId(1);
-    expect(plantaService.obtenerPlantaPorId).toHaveBeenCalled();
-  });
 
   it('deberia consultar planta por id', () => {
     spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
