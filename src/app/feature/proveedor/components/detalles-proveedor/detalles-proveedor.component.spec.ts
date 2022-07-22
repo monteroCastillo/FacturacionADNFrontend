@@ -38,5 +38,13 @@ describe('DetallesProveedorComponent', () => {
   it('Deberia dar los detalles del proveedor', () => {
     expect(component).toBeTruthy();
   });
+
+  it('deberia consultar proveedor por id', () => {
+    spyOn(proveedorService, 'obtenerProveedorPorId').withArgs(1).and.returnValue(
+      of()
+    );
+    proveedorService.obtenerProveedorPorId(1);
+    expect(proveedorService.obtenerProveedorPorId).toHaveBeenCalled();
+  });
 });
 
