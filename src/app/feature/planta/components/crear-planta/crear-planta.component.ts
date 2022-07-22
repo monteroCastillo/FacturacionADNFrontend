@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component} from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Planta } from '../../shared/models/planta';
@@ -35,16 +34,4 @@ export class CrearPlantaComponent {
     this.router.navigate(['/planta/lista-plantas']);
   }
 
-  irALaListaDePlantas() {
-    this.router.navigate(['/planta/lista-plantas']);
-  }
-
-  onSubmit(form: NgForm) {
-    this.crearPlanta();
-    form.resetForm();
-  }
-
-  clearForm(form: FormGroup) {
-    form.reset();
-  }
 }

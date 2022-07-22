@@ -15,7 +15,7 @@ export class CrearProveedorComponent{
   proveedorForm: FormGroup;
 
   proveedor: Proveedor = new Proveedor();
-  constructor(private proveedorServicio: ProveedorService, private router: Router) { }
+  constructor(protected proveedorServicio: ProveedorService, private router: Router) { }
 
 
   crearProveedor() {
@@ -25,10 +25,6 @@ export class CrearProveedorComponent{
       }, error: () => { }
     });
     this.router.navigate(['/proveedor/listar-proveedor']);
-  }
-
-  irALaListaDeProveedores() {
-    this.router.navigate(['/proveedor/proveedores']);
   }
 
 

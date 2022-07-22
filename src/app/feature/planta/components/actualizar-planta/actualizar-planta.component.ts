@@ -55,12 +55,7 @@ export class ActualizarPlantaComponent implements OnInit {
 
   }
 
-  irAlaListaDePlantas() {
-    this.router.navigate(['/planta/lista-plantas']);
-
-  }
-
-  onSubmit() {
+  actualizarPlanta() {
     this.plantaService.actualizarPlanta(this.planta).subscribe(
       () => window.alert('Registro Actualizado')
 
@@ -71,7 +66,7 @@ export class ActualizarPlantaComponent implements OnInit {
 
       );
     }
-    this.irAlaListaDePlantas();
+    this.router.navigate(['/planta/lista-plantas']);
   }
 
 

@@ -33,17 +33,12 @@ export class CrearFacturaComponent implements OnInit {
   }
 
   crearFactura(){
+    this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
     this.facturaServicio.crearFactura(this.facturaCrear).subscribe(
       ()=>window.alert('Registro Creado'));
   }
 
-  onSubmit() {
-    this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
-    this.crearFactura();
-  }
-
   public saveCode(evento): void {
-
 
     this.plantaLista.forEach((valor, index) => {
       if(valor[index].nombre === evento.target.value){
@@ -52,16 +47,5 @@ export class CrearFacturaComponent implements OnInit {
       }
     });
 
-
-    /* for(let i = 0; i< this.plantaLista.length; i++){
-      if(this.plantaLista[i].nombre === e.target.value){
-        this.plantasVendidas =(this.plantaLista[i]);
-        this.plantasVendidasArray.push(this.plantasVendidas);
-        break;
-      }
-    } */
-
   }
-
-
 }

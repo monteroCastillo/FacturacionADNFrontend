@@ -49,13 +49,13 @@ describe('DetallesPlantaComponent', () => {
 
 
 
-  it('deberia consultar proveedor por id', () => {
+  /*  it('deberia consultar planta por id', () => {
     spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
       of()
     );
     plantaService.obtenerPlantaPorId(1);
     expect(plantaService.obtenerPlantaPorId).toHaveBeenCalled();
-  });
+  }); */
 
 
 

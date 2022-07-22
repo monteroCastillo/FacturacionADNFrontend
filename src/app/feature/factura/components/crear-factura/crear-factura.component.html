@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3">
   <h3 class="text-center">Registro de Factura</h3>
-  <form  (ngSubmit)="onSubmit()" #myForm = "ngForm" >
+  <form  (ngSubmit)="crearFactura()" #myForm = "ngForm" >
     <div class="form-group">
       <label>Cliente:</label>
       <input type="number" class="form-control" id="cliente" [(ngModel)]="facturaCrear.idCliente" name="nombre">
