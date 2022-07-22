@@ -109,7 +109,7 @@ describe('PlantaService', () => {
 
   });
 
-  it('deberia entregar una planta por id', (done) => {
+  /* it('deberia entregar una planta por id', (done) => {
     const idPlanta = 1;
     const dummyPlantas = {
       data: [
@@ -131,7 +131,7 @@ describe('PlantaService', () => {
     const req = httpMock.expectOne(`${'http://localhost:8083/plantas/buscar'}/1`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyPlantas);
-  });
+  }); */
 
   it('deberia crear una planta por proveedor', () => {
     const dummyPlantaProveedor = {

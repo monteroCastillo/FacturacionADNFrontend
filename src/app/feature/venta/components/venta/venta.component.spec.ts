@@ -42,7 +42,18 @@ describe('VentaComponent', () => {
     expect(component).toBeTruthy();
   });
 
+<<<<<<< HEAD
 
 
+=======
+  describe ('Test a calcular venta', ()=>{
+    it('Deberia retornar la suma de las ventas del dia', () =>{
+
+      component.calcularSuma();
+      expect(ventaService.obtenerVenta).toHaveBeenCalled();
+
+    });
+  });
+>>>>>>> d4dd0c7076c5075b91cedfe55997178b58551a42
 });
 
