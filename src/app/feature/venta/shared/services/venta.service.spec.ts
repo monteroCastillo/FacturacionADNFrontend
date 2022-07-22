@@ -5,6 +5,7 @@ import { HttpService } from '@core/services/http.service';
 import { VentaService } from './venta.service';
 
 describe('VentaService', () => {
+  //let httpMock: HttpTestingController;
   let service: VentaService;
 
   beforeEach(() => {
@@ -12,13 +13,14 @@ describe('VentaService', () => {
       imports: [HttpClientTestingModule],
       providers: [VentaService, HttpService]
     });
-
+    // httpMock = injector.inject(HttpTestingController);
     service = TestBed.inject(VentaService);
   });
 
   it('Pruebas al service de venta', () => {
     expect(service).toBeTruthy();
   });
+
 
 
 

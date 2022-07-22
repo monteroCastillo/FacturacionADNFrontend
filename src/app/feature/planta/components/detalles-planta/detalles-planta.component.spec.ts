@@ -17,9 +17,6 @@ describe('DetallesPlantaComponent', () => {
   let fixture: ComponentFixture<DetallesPlantaComponent>;
   let plantaService: PlantaService;
 
-
-
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DetallesPlantaComponent],
