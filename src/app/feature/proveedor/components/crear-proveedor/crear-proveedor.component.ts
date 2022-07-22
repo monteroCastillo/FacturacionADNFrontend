@@ -24,11 +24,11 @@ export class CrearProveedorComponent{
         Swal.fire({title:'Registro realizado exitosamente!', icon:'success',timer:2000});
       }, error: () => { }
     });
-    this.router.navigate(['proveedor/listar-proveedor']);
+    this.router.navigate(['/proveedor/listar-proveedor']);
   }
 
   irALaListaDeProveedores() {
-    this.router.navigate(['proveedor/proveedores']);
+    this.router.navigate(['/proveedor/proveedores']);
   }
 
 

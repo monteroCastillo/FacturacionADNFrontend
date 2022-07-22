@@ -73,8 +73,6 @@ describe('ProveedorService', () => {
     req.event(new HttpResponse<boolean>({body:true}));
   });
 
-
-
   it('Deberia actualizar un proveedor', () =>{
     const dummyProveedor = {
       id: 22,
@@ -103,7 +101,7 @@ describe('ProveedorService', () => {
 
   });
 
-/*   it('deberia entregar un proveedor por id', (done) => {
+  it('deberia entregar un proveedor por id', (done) => {
     const id = 1;
     const dummyProveedor = {
       data: [{
@@ -124,6 +122,6 @@ describe('ProveedorService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(dummyProveedor);
   });
- */
+
 
 });

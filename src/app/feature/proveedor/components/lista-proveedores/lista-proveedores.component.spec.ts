@@ -48,9 +48,9 @@ describe('ListaProveedoresComponent', () => {
     fixture.detectChanges();
   });
 
-  /* it('Deberian crearse dos proveedores', () => {
+  it('Deberian crearse dos proveedores', () => {
     expect(component).toBeTruthy();
-  }); */
+  });
 
 
   it('Deberian crearse  proveedores', () => {

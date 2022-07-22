@@ -24,15 +24,15 @@ export class ListaPlantasComponent implements OnInit {
   }
 
   crearPlantaForm(){
-    this.router.navigate(['planta/crear-planta']);
+    this.router.navigate(['/planta/crear-planta']);
   }
 
   verDetallesDeLaPlanta(id: number) {
-    this.router.navigate(['planta/detalles-planta', id]);
+    this.router.navigate(['/planta/detalles-planta', id]);
   }
 
   actualizarPlanta(id: number) {
-    this.router.navigate(['planta/actualizar-planta', id]);
+    this.router.navigate(['/planta/actualizar-planta', id]);
   }
 
   eliminarPlanta(id: number) {

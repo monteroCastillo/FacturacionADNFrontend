@@ -41,12 +41,6 @@ describe('ActualizarPlantaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /* it('Deberia actualizar el componente planta', () => {
-
-
-    component.onSubmit();
-    expect(plantaService.actualizarPlanta).toHaveBeenCalled();
-  }); */
 
   it('deberia consultar planta por id', () => {
     spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
