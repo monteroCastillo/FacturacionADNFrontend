@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 import { FacturaService } from '../../shared/service/factura.service';
 
 import { CrearFacturaComponent } from './crear-factura.component';
@@ -48,7 +49,8 @@ describe('CrearFacturaComponent', () => {
 
     spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
     component.crearFactura();
-    expect(window.alert).toHaveBeenCalled();
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('Registro realizado exitosamente!');
   });
 
   it('Debe tener una variable llamada plantasVendidasArray con valor [] por defecto', () => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
@@ -32,9 +33,14 @@ export class ActualizarProveedorComponent implements OnInit {
 
   onSubmit() {
     this.proveedorService.actualizarProveedor(this.proveedor).subscribe(() => {
-      this.irAlaListaDeProveedores();
+      Swal.fire({
+        title: 'Registro realizado exitosamente!',
+        icon: 'success',
+        timer: 2000,
+      });
 
     });
+    this.irAlaListaDeProveedores();
   }
 
 }

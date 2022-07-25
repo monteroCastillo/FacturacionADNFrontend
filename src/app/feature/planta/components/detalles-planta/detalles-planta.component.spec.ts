@@ -6,16 +6,15 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
-//import { Planta } from '../../shared/models/planta';
-
 import { PlantaService } from '../../shared/services/planta.service';
+import { ListaPlantasComponent } from '../lista-plantas/lista-plantas.component';
 import { DetallesPlantaComponent } from './detalles-planta.component';
 
 describe('DetallesPlantaComponent', () => {
 
   let component: DetallesPlantaComponent;
   let fixture: ComponentFixture<DetallesPlantaComponent>;
-  let plantaService: PlantaService;
+  let espiaServicio: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -23,7 +22,9 @@ describe('DetallesPlantaComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([{
+          path: 'planta/lista-plantas', component:ListaPlantasComponent}
+        ]),
         ReactiveFormsModule,
         FormsModule,
       ],
@@ -35,8 +36,17 @@ describe('DetallesPlantaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DetallesPlantaComponent);
     component = fixture.componentInstance;
-    plantaService = TestBed.inject(PlantaService);
-    spyOn(plantaService, 'crearPlanta').and.returnValue(of(true));
+    espiaServicio = spyOn((component as any).plantaServicio,'obtenerPlantaPorId').and.returnValue(of(
+      {
+        idPlanta: 1,
+        nombre: 'Orquidea Cattleya triannae',
+        descripcion: 'flor nacional',
+        fechaIngreso: new Date('2022-6-14'),
+        cantidad: 14,
+        valor: 80000,
+        categoria: 'PLANTASDEFLOR',
+      }
+    ));
     fixture.detectChanges();
   });
 
@@ -44,15 +54,19 @@ describe('DetallesPlantaComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('deberia consultar proveedor por id',  (done) => {
+    (component as any).plantaServicio.obtenerPlantaPorId(1).subscribe(()=>{
+      done();
+    });
+    component.ngOnInit();
+    expect(espiaServicio).toHaveBeenCalled();
+  });
 
-
-  /*  it('deberia consultar planta por id', () => {
-    spyOn(plantaService, 'obtenerPlantaPorId').withArgs(1).and.returnValue(
-      of()
-    );
-    plantaService.obtenerPlantaPorId(1);
-    expect(plantaService.obtenerPlantaPorId).toHaveBeenCalled();
-  }); */
+  it('Deberia ir atras', () => {
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    component.irAtras();
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/lista-plantas']);
+  });
 
 
 

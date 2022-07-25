@@ -134,7 +134,7 @@
 
       <div class="form-group">
         <label>Proveedor : </label>
-        <input type="text" list="codes"  (change)="saveCode($event)" class="form-control">
+        <input type="text" list="codes"  (change)="elegirProveedor($event)" class="form-control">
       <datalist id="codes" >
         <option *ngFor="let c of listaProveedores | async" [value]="c.id" >{{c.nombre}}</option>
       </datalist>

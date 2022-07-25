@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Planta } from 'src/app/feature/planta/shared/models/planta';
 import { PlantaService } from 'src/app/feature/planta/shared/services/planta.service';
+import Swal from 'sweetalert2';
 import { Factura } from '../../shared/model/factura';
 import { FacturaCrear } from '../../shared/model/factura-crear';
 import { FacturaService } from '../../shared/service/factura.service';
@@ -35,17 +36,26 @@ export class CrearFacturaComponent implements OnInit {
   crearFactura(){
     this.facturaCrear.comandoProductosFacturar= this.plantasVendidasArray;
     this.facturaServicio.crearFactura(this.facturaCrear).subscribe(
-      ()=>window.alert('Registro Creado'));
+      ()=> { Swal.fire({
+        title: 'Registro realizado exitosamente!',
+        icon: 'success',
+        timer: 2000,
+      });
+      });
   }
 
   public saveCode(evento): void {
 
-    this.plantaLista.forEach((valor, index) => {
-      if(valor[index].nombre === evento.target.value){
-        this.plantasVendidas = (valor[index]);
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of, no-var
+    for(var i = 0; i< this.plantaLista.length; i++){
+      if(this.plantaLista[i].nombre === evento.target.value){
+        this.plantasVendidas =(this.plantaLista[i]);
         this.plantasVendidasArray.push(this.plantasVendidas);
+        break;
       }
-    });
+    }
 
   }
+
+
 }

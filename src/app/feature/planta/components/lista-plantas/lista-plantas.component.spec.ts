@@ -77,6 +77,37 @@ describe('ListaPlantasComponent', () => {
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
   });
 
+  it('Deberia ir a crear la planta', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    component.crearPlantaForm();
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/crear-planta']);
+  });
+
+  it('Deberia ir A ver detalles de la planta', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    const id = 1;
+    component.verDetallesDeLaPlanta(id);
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/detalles-planta', id]);
+  });
+
+  it('Deberia ir A ver detalles de la planta', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    const id = 1;
+    component.verDetallesDeLaPlanta(id);
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/detalles-planta', id]);
+  });
+
+  it('Deberia ir actualizar la planta', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    const id = 1;
+    component.actualizarPlanta(id);
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/actualizar-planta', id]);
+  });
+
 });
 
 

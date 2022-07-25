@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Proveedor } from 'src/app/feature/proveedor/shared/models/proveedor';
 import { ProveedorService } from 'src/app/feature/proveedor/shared/services/proveedor.service';
+import Swal from 'sweetalert2';
 import { Planta} from '../../shared/models/planta';
 import { PlantaPorProveedor } from '../../shared/models/PlantaPorProveedor';
 import { PlantaService } from '../../shared/services/planta.service';
@@ -46,24 +47,31 @@ export class ActualizarPlantaComponent implements OnInit {
 
   }
 
-  public saveCode(e): void {
+  public elegirProveedor(e): void {
 
     this.plantaPorProveedor={
       idProveedor:  e.target.value,
       idPlanta: this.id
     };
-
   }
 
   actualizarPlanta() {
     this.plantaService.actualizarPlanta(this.planta).subscribe(
-      () => window.alert('Registro Actualizado')
-
+      () => {  Swal.fire({
+        title: 'Registro realizado exitosamente!',
+        icon: 'success',
+        timer: 2000,
+      });
+      }
     );
     if(JSON.stringify(this.plantaPorProveedor) !== '{}'){
       this.plantaService.crearPlantaPorProveedor(this.plantaPorProveedor).subscribe(
-        () => window.alert('Proveedor Agregado a la planta')
-
+        () => {  Swal.fire({
+          title: 'Registro realizado exitosamente!',
+          icon: 'success',
+          timer: 2000,
+        });
+        }
       );
     }
     this.router.navigate(['/planta/lista-plantas']);

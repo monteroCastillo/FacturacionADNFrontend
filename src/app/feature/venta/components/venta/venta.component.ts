@@ -19,7 +19,7 @@ export class VentaComponent  {
 
     this.ventaServicio.obtenerVenta(this.fecha).subscribe({
       next: (dato) => {
-
+        console.log('EL valor de dato en la venta: '+ dato);
         this.venta.ventaDia = dato;
         if(dato ===null){
           Swal.fire({

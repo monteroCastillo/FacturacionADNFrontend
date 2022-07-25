@@ -56,6 +56,12 @@ describe('ActualizarProveedorComponent', () => {
     expect(proveedorService.obtenerProveedorPorId).toHaveBeenCalled();
   });
 
+  it('Deberia ir atras', () => {
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    component.irAlaListaDeProveedores();
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/proveedor/listar-proveedores']);
+  });
+
 
 });
 
