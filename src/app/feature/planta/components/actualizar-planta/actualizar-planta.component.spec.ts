@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
@@ -29,7 +30,7 @@ describe('ActualizarPlantaComponent', () => {
         ReactiveFormsModule,
         FormsModule,
       ],
-      providers: [PlantaService, HttpService],
+      providers: [PlantaService, HttpService,{provide: ActivatedRoute, useValue:{snapshot:{params:{'id':1}}}} ],
     }).compileComponents();
   });
 
@@ -38,6 +39,7 @@ describe('ActualizarPlantaComponent', () => {
     component = fixture.componentInstance;
     plantaService = TestBed.inject(PlantaService);
     spyOn(plantaService, 'actualizarPlanta').and.returnValue(of(true));
+
     fixture.detectChanges();
   });
 
@@ -60,6 +62,7 @@ describe('ActualizarPlantaComponent', () => {
     expect(Swal.isVisible()).toBeTruthy();
     expect(Swal.getTitle().textContent).toEqual('Registro realizado exitosamente!');
   });
+
 
 
 });

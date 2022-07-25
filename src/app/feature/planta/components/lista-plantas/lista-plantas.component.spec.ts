@@ -92,14 +92,6 @@ describe('ListaPlantasComponent', () => {
     expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/detalles-planta', id]);
   });
 
-  it('Deberia ir A ver detalles de la planta', () => {
-
-    const spyOnRouter = spyOn((component as any).router,'navigate');
-    const id = 1;
-    component.verDetallesDeLaPlanta(id);
-    expect(spyOnRouter).toHaveBeenCalledOnceWith(['/planta/detalles-planta', id]);
-  });
-
   it('Deberia ir actualizar la planta', () => {
 
     const spyOnRouter = spyOn((component as any).router,'navigate');

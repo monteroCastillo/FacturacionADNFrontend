@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 
 import { ProveedorService } from '../../shared/services/proveedor.service';
 import { ListaProveedoresComponent } from '../lista-proveedores/lista-proveedores.component';
@@ -60,6 +61,13 @@ describe('ActualizarProveedorComponent', () => {
     const spyOnRouter = spyOn((component as any).router,'navigate');
     component.irAlaListaDeProveedores();
     expect(spyOnRouter).toHaveBeenCalledOnceWith(['/proveedor/listar-proveedores']);
+  });
+
+  it('Debe lanzar mensaje cuando actualiza una proveedor ', () => {
+    spyOn(window, 'alert').and.callFake(()=>console.log('ejecuto alert'));
+    component.onSubmit();
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('Registro realizado exitosamente!');
   });
 
 

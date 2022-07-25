@@ -71,4 +71,26 @@ describe('ListaProveedoresComponent', () => {
     expect(Swal.getTitle().textContent).toEqual('Registro eliminado exitosamente!');
   });
 
+  it('Deberia ir a crear un proveedor', () => {
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    component.crearProveedorForm();
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['proveedor/crear-proveedor']);
+  });
+
+  it('Deberia ir A ver detalles de un proveedor', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    const id = 1;
+    component.verDetallesDelProveedor(id);
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['proveedor/detalles-proveedor', id]);
+  });
+
+  it('Deberia actualizar el proveedor', () => {
+
+    const spyOnRouter = spyOn((component as any).router,'navigate');
+    const id = 1;
+    component.actualizarProveedor(id);
+    expect(spyOnRouter).toHaveBeenCalledOnceWith(['proveedor/actualizar-proveedor', id]);
+  });
+
 });

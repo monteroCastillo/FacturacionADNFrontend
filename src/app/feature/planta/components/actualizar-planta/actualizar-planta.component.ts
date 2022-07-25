@@ -36,6 +36,11 @@ export class ActualizarPlantaComponent implements OnInit {
     this.listaProveedores = this.proveedorService.consultar();
     this.listaPlantas = this.plantaService.obtenerListaDePlantas();
     this.id = this.route.snapshot.params.id;
+    this.traerPlanta();
+
+  }
+
+  traerPlanta(){
     if(this.id !== undefined){
       this.plantaService.obtenerPlantaPorId(this.id).subscribe({
         next: (dato) => {

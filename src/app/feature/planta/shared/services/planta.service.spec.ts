@@ -109,30 +109,6 @@ describe('PlantaService', () => {
 
   });
 
-  /* it('deberia entregar una planta por id', (done) => {
-    const idPlanta = 1;
-    const dummyPlantas = {
-      data: [
-        { id: 12,
-          nombre: 'Margarita',
-          descripcion: 'flor amarilla',
-          fechaIngreso: '2022-06-08',
-          cantidad: 50,
-          valor: 12000.00,
-          categoria: 'PLANTASDEFLOR'}
-      ]
-    };
-
-    service.obtenerPlantaPorId(idPlanta).subscribe(plantas => {
-      expect(plantas[0]).toEqual(dummyPlantas[0]);
-      done();
-    });
-
-    const req = httpMock.expectOne(`${'http://localhost:8083/plantas/buscar'}/1`);
-    expect(req.request.method).toBe('GET');
-    req.flush(dummyPlantas);
-  }); */
-
   it('deberia crear una planta por proveedor', () => {
     const dummyPlantaProveedor = {
       idProveedor:22,
