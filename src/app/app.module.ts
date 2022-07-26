@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VentaComponent } from './feature/venta/components/venta/venta.component';
 import { ListarFacturaComponent } from './feature/factura/components/listar-factura/listar-factura.component';
 import { CrearFacturaComponent } from './feature/factura/components/crear-factura/crear-factura.component';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CrearFacturaComponent } from './feature/factura/components/crear-factur
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, ServicioAlertasService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

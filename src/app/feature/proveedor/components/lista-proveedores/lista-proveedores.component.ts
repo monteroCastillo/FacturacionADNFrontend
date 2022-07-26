@@ -1,5 +1,6 @@
   import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Proveedor } from '../../shared/models/proveedor';
@@ -16,7 +17,8 @@ export class ListaProveedoresComponent implements OnInit {
   public listaProveedores: Observable<Proveedor[]>;
   constructor(
     protected proveedorServicio: ProveedorService,
-    private router: Router
+    private router: Router,
+    protected alertaServicio: ServicioAlertasService
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class ListaProveedoresComponent implements OnInit {
     this.proveedorServicio.eliminarProveedor(id).subscribe(() => {
 
     });
+
     Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000});
     this.listaProveedores = this.proveedorServicio.consultar();
   }

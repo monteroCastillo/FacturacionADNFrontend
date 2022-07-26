@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
 import { Proveedor } from '../../shared/models/proveedor';
 import { ProveedorService } from '../../shared/services/proveedor.service';
 
@@ -15,7 +15,7 @@ export class ActualizarProveedorComponent implements OnInit {
   id: number;
   proveedor: Proveedor = new Proveedor();
   proveedorForm: FormGroup;
-  constructor(protected proveedorService: ProveedorService, private router: Router, private route: ActivatedRoute) { }
+  constructor(protected proveedorService: ProveedorService, private router: Router, private route: ActivatedRoute, protected alertaServicio: ServicioAlertasService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
@@ -33,12 +33,7 @@ export class ActualizarProveedorComponent implements OnInit {
 
   onSubmit() {
     this.proveedorService.actualizarProveedor(this.proveedor).subscribe(() => {
-      Swal.fire({
-        title: 'Registro realizado exitosamente!',
-        icon: 'success',
-        timer: 2000,
-      });
-
+      this.alertaServicio.mensajeConfirmacion('Registro realizado exitosamente!');
     });
     this.irAlaListaDeProveedores();
   }

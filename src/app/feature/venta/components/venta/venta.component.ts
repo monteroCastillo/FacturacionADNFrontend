@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import Swal from 'sweetalert2';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
+
 import { Venta } from '../../shared/models/venta';
 import { VentaService } from '../../shared/services/venta.service';
 
@@ -13,7 +14,7 @@ export class VentaComponent  {
   fecha: string;
   valorSuma: number;
   venta: Venta = new Venta();
-  constructor(private ventaServicio: VentaService) { }
+  constructor(private ventaServicio: VentaService, protected alertaServicio: ServicioAlertasService) { }
 
   calcularSuma() {
 
@@ -21,12 +22,9 @@ export class VentaComponent  {
       next: (dato) => {
 
         this.venta.ventaDia = dato;
-        if(dato ===null){
-          Swal.fire({
-            title: 'No hay registros en esa fecha',
-            icon: 'error',
-            timer: 2000
-          });
+        if(dato === null){
+          this.alertaServicio.mensajeDeError('No hay registros en esa fecha');
+
         }
       },
       error: () => {

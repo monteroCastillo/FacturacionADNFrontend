@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
 import { Planta } from '../../shared/models/planta';
 import { PlantaService } from '../../shared/services/planta.service';
 
@@ -12,23 +12,15 @@ import { PlantaService } from '../../shared/services/planta.service';
 })
 export class CrearPlantaComponent {
   planta: Planta = new Planta();
-  constructor(protected plantaServicio: PlantaService, private router: Router) {}
+  constructor(protected plantaServicio: PlantaService, private router: Router, protected alertaServicio: ServicioAlertasService) {}
 
   crearPlanta() {
     this.plantaServicio.crearPlanta(this.planta).subscribe({
       next: () => {
-        Swal.fire({
-          title: 'Registro realizado exitosamente!',
-          icon: 'success',
-          timer: 2000,
-        });
+        this.alertaServicio.mensajeConfirmacion('Registro realizado exitosamente!');
       },
       error: (error: HttpErrorResponse) => {
-        Swal.fire({
-          title: error.error.mensaje,
-          icon: 'error',
-          timer: 2000,
-        });
+        this.alertaServicio.mensajeDeError(error.error.mensaje);
       },
     });
     this.router.navigate(['/planta/lista-plantas']);

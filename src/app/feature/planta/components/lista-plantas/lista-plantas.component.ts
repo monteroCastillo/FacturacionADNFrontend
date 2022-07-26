@@ -1,10 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicioAlertasService } from '@core/services/servicio-alertas.service';
 import { Observable } from 'rxjs';
 import { Planta } from 'src/app/feature/planta/shared/models/planta';
 import { PlantaService } from 'src/app/feature/planta/shared/services/planta.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-plantas',
@@ -16,7 +16,7 @@ export class ListaPlantasComponent implements OnInit {
   planta: Planta[];
   public listaPlantas: Observable<Planta[]>;
 
-  constructor(protected plantaServicio: PlantaService, private router: Router) { }
+  constructor(protected plantaServicio: PlantaService, private router: Router, protected alertaServicio: ServicioAlertasService) { }
 
   ngOnInit(): void {
     this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();
@@ -39,7 +39,7 @@ export class ListaPlantasComponent implements OnInit {
     this.plantaServicio.eliminarPlanta(id).subscribe(() => {
       this.obtenerPlanta();
     });
-    Swal.fire({title:'Registro eliminado exitosamente!', icon:'success',timer:2000});
+    this.alertaServicio.mensajeConfirmacion('Registro eliminado exitosamente!');
     this.listaPlantas = this.plantaServicio.obtenerListaDePlantas();
   }
 
